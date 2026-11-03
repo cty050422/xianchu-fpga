@@ -1,0 +1,2 @@
+/* Shared layout in app.wxss; page root and scroll area are fixed. */
+.workspace-header .settings-auth-shortcut{flex:none;height:58rpx;min-height:58rpx;margin:0;padding:0 15rpx;font-size:21rpx}

@@ -1,0 +1,4 @@
+{
+  "desc": "FPGA instrument local BLE controller",
+  "rules": [{"action": "disallow", "page": "*"}]
+}

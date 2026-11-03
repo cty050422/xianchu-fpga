@@ -1,0 +1,32 @@
+# Build products and measurements belong in local build/ or GitHub Releases.
+/build/
+/dist/
+/downloads/
+node_modules/
+__pycache__/
+*.py[cod]
+*.vvp
+*.exe
+*.fs
+*.bin
+*.log
+*.vcd
+*.fst
+*.zip
+*.7z
+*.gprj.user
+**/impl/
+# Local app IDs, paths and credentials must not be published.
+.env
+.env.*
+!.env.example
+.local/
+.gateway-state/
+.recordings/
+project.private.config.json
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

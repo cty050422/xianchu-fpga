@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "设备/设置",
+  "disableScroll": true,
+  "usingComponents": {
+    "playback-bar": "/components/playback-bar/playback-bar"
+  }
+}

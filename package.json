@@ -1,0 +1,15 @@
+{
+  "name": "xianchu-fpga",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An expressive four-voice FPGA musical instrument for Tang Mega 60K",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node src/tools/start_music_service.mjs",
+    "monitor": "node src/tools/start_ui.mjs",
+    "test": "node tools/test_host.mjs",
+    "test:catalog": "node src/tools/start_music_service.mjs --check",
+    "check": "python tools/check_project.py"
+  }
+}

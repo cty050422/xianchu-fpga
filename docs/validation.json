@@ -1,0 +1,130 @@
+{
+  "release": "1.0.0",
+  "date": "2026-11-03",
+  "host": {
+    "passed": true,
+    "inputs_stable": true,
+    "tests": 351,
+    "groups": [
+      {
+        "group": "miniprogram",
+        "files": 34,
+        "exit_code": 0,
+        "tests": 167,
+        "pass": 167,
+        "fail": 0,
+        "skipped": 0,
+        "error": null
+      },
+      {
+        "group": "gateway",
+        "files": 15,
+        "exit_code": 0,
+        "tests": 135,
+        "pass": 135,
+        "fail": 0,
+        "skipped": 0,
+        "error": null
+      },
+      {
+        "group": "monitor",
+        "files": 7,
+        "exit_code": 0,
+        "tests": 34,
+        "pass": 34,
+        "fail": 0,
+        "skipped": 0,
+        "error": null
+      },
+      {
+        "group": "integration",
+        "files": 6,
+        "exit_code": 0,
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0,
+        "error": null
+      },
+      {
+        "group": "catalog",
+        "files": 1,
+        "exit_code": 0,
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "error": null
+      }
+    ],
+    "input_snapshot_sha256": "3ef40504c7f5809856bdb97411101618fa53eb0da038f31450ab2307de3bb3a5"
+  },
+  "cpp": {
+    "passed": true,
+    "cases": 7
+  },
+  "rtl": {
+    "passed": true,
+    "entries": 13,
+    "compile_only": [
+      "instrument_display_top"
+    ],
+    "simulation_cases": 12,
+    "tests": [
+      "instrument_display_top",
+      "tb_adsr_expressive",
+      "tb_adsr_stage_observer",
+      "tb_additive_interpolation",
+      "tb_chorus_delay",
+      "tb_instrument_extension_core",
+      "tb_narrative_optimized_core",
+      "tb_audition",
+      "tb_display_trace_engine",
+      "tb_display_capture",
+      "tb_display_reset",
+      "tb_display_labels",
+      "tb_display_scale"
+    ]
+  },
+  "fpga": {
+    "source_inputs": 82,
+    "inputs_stable": true,
+    "timing_violations": {
+      "Setup": 0,
+      "Hold": 0
+    },
+    "resources": {
+      "Logic": {
+        "used": 33944.0,
+        "total": 59904.0
+      },
+      "Register": {
+        "used": 15267.0,
+        "total": 60780.0
+      },
+      "CLS": {
+        "used": 23182.0,
+        "total": 29952.0
+      },
+      "DSP": {
+        "used": 79.5,
+        "total": 118.0
+      },
+      "BSRAM": {
+        "used": 109.0,
+        "total": 118.0
+      }
+    },
+    "bitstream_sha256": "057914340f0622d8834c2aaa1f5e1b192ec7541f47c4647c4b228558b5a03fcd"
+  },
+  "s3": {
+    "clean_build": true,
+    "fqbn": "esp32:esp32:esp32s3:FlashSize=16M,PartitionScheme=app3M_fat9M_16MB,PSRAM=opi,USBMode=hwcdc,CDCOnBoot=cdc",
+    "app_sha256": "f722ab6fdd8d91245688b040020aaa72ddff5e28005442fcdd989d49aa694d1d"
+  },
+  "baseline_musical_rtl_expressions_changed": false,
+  "ui_font_changed_to_open_license": true,
+  "hardware_validation": "NOT_RUN",
+  "ble_device_validation": "NOT_RUN",
+  "physical_latency_validation": "NOT_RUN"
+}

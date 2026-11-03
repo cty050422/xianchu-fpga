@@ -1,0 +1,893 @@
+<?xml version='1.0' encoding='utf-8'?>
+<GAO_CONFIG>
+  <Version>3.0</Version>
+  <Mode>Standard</Mode>
+  <AoCore index="0" sample_clock="audio_clk_12m288" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" trigger_pos="128" module_name="instrument_display_top" force_trigger_by_falling_edge="false">
+    <SignalList>
+      <Signal capture_enable="true">adsr_done</Signal>
+      <Signal capture_enable="true">adsr_gate</Signal>
+      <Bus name="adsr_preset[1:0]">
+        <Signal capture_enable="true">adsr_preset[1]</Signal>
+        <Signal capture_enable="true">adsr_preset[0]</Signal>
+      </Bus>
+      <Bus name="adsr_event_count[7:0]">
+        <Signal capture_enable="true">adsr_event_count[7]</Signal>
+        <Signal capture_enable="true">adsr_event_count[6]</Signal>
+        <Signal capture_enable="true">adsr_event_count[5]</Signal>
+        <Signal capture_enable="true">adsr_event_count[4]</Signal>
+        <Signal capture_enable="true">adsr_event_count[3]</Signal>
+        <Signal capture_enable="true">adsr_event_count[2]</Signal>
+        <Signal capture_enable="true">adsr_event_count[1]</Signal>
+        <Signal capture_enable="true">adsr_event_count[0]</Signal>
+      </Bus>
+      <Bus name="adsr_start[15:0]">
+        <Signal capture_enable="true">adsr_start[15]</Signal>
+        <Signal capture_enable="true">adsr_start[14]</Signal>
+        <Signal capture_enable="true">adsr_start[13]</Signal>
+        <Signal capture_enable="true">adsr_start[12]</Signal>
+        <Signal capture_enable="true">adsr_start[11]</Signal>
+        <Signal capture_enable="true">adsr_start[10]</Signal>
+        <Signal capture_enable="true">adsr_start[9]</Signal>
+        <Signal capture_enable="true">adsr_start[8]</Signal>
+        <Signal capture_enable="true">adsr_start[7]</Signal>
+        <Signal capture_enable="true">adsr_start[6]</Signal>
+        <Signal capture_enable="true">adsr_start[5]</Signal>
+        <Signal capture_enable="true">adsr_start[4]</Signal>
+        <Signal capture_enable="true">adsr_start[3]</Signal>
+        <Signal capture_enable="true">adsr_start[2]</Signal>
+        <Signal capture_enable="true">adsr_start[1]</Signal>
+        <Signal capture_enable="true">adsr_start[0]</Signal>
+      </Bus>
+      <Bus name="adsr_256[15:0]">
+        <Signal capture_enable="true">adsr_256[15]</Signal>
+        <Signal capture_enable="true">adsr_256[14]</Signal>
+        <Signal capture_enable="true">adsr_256[13]</Signal>
+        <Signal capture_enable="true">adsr_256[12]</Signal>
+        <Signal capture_enable="true">adsr_256[11]</Signal>
+        <Signal capture_enable="true">adsr_256[10]</Signal>
+        <Signal capture_enable="true">adsr_256[9]</Signal>
+        <Signal capture_enable="true">adsr_256[8]</Signal>
+        <Signal capture_enable="true">adsr_256[7]</Signal>
+        <Signal capture_enable="true">adsr_256[6]</Signal>
+        <Signal capture_enable="true">adsr_256[5]</Signal>
+        <Signal capture_enable="true">adsr_256[4]</Signal>
+        <Signal capture_enable="true">adsr_256[3]</Signal>
+        <Signal capture_enable="true">adsr_256[2]</Signal>
+        <Signal capture_enable="true">adsr_256[1]</Signal>
+        <Signal capture_enable="true">adsr_256[0]</Signal>
+      </Bus>
+      <Bus name="adsr_768[15:0]">
+        <Signal capture_enable="true">adsr_768[15]</Signal>
+        <Signal capture_enable="true">adsr_768[14]</Signal>
+        <Signal capture_enable="true">adsr_768[13]</Signal>
+        <Signal capture_enable="true">adsr_768[12]</Signal>
+        <Signal capture_enable="true">adsr_768[11]</Signal>
+        <Signal capture_enable="true">adsr_768[10]</Signal>
+        <Signal capture_enable="true">adsr_768[9]</Signal>
+        <Signal capture_enable="true">adsr_768[8]</Signal>
+        <Signal capture_enable="true">adsr_768[7]</Signal>
+        <Signal capture_enable="true">adsr_768[6]</Signal>
+        <Signal capture_enable="true">adsr_768[5]</Signal>
+        <Signal capture_enable="true">adsr_768[4]</Signal>
+        <Signal capture_enable="true">adsr_768[3]</Signal>
+        <Signal capture_enable="true">adsr_768[2]</Signal>
+        <Signal capture_enable="true">adsr_768[1]</Signal>
+        <Signal capture_enable="true">adsr_768[0]</Signal>
+      </Bus>
+      <Bus name="adsr_1024[15:0]">
+        <Signal capture_enable="true">adsr_1024[15]</Signal>
+        <Signal capture_enable="true">adsr_1024[14]</Signal>
+        <Signal capture_enable="true">adsr_1024[13]</Signal>
+        <Signal capture_enable="true">adsr_1024[12]</Signal>
+        <Signal capture_enable="true">adsr_1024[11]</Signal>
+        <Signal capture_enable="true">adsr_1024[10]</Signal>
+        <Signal capture_enable="true">adsr_1024[9]</Signal>
+        <Signal capture_enable="true">adsr_1024[8]</Signal>
+        <Signal capture_enable="true">adsr_1024[7]</Signal>
+        <Signal capture_enable="true">adsr_1024[6]</Signal>
+        <Signal capture_enable="true">adsr_1024[5]</Signal>
+        <Signal capture_enable="true">adsr_1024[4]</Signal>
+        <Signal capture_enable="true">adsr_1024[3]</Signal>
+        <Signal capture_enable="true">adsr_1024[2]</Signal>
+        <Signal capture_enable="true">adsr_1024[1]</Signal>
+        <Signal capture_enable="true">adsr_1024[0]</Signal>
+      </Bus>
+      <Bus name="adsr_model[7:0]">
+        <Signal capture_enable="true">adsr_model[7]</Signal>
+        <Signal capture_enable="true">adsr_model[6]</Signal>
+        <Signal capture_enable="true">adsr_model[5]</Signal>
+        <Signal capture_enable="true">adsr_model[4]</Signal>
+        <Signal capture_enable="true">adsr_model[3]</Signal>
+        <Signal capture_enable="true">adsr_model[2]</Signal>
+        <Signal capture_enable="true">adsr_model[1]</Signal>
+        <Signal capture_enable="true">adsr_model[0]</Signal>
+      </Bus>
+      <Bus name="adsr_attack_count[15:0]">
+        <Signal capture_enable="true">adsr_attack_count[15]</Signal>
+        <Signal capture_enable="true">adsr_attack_count[14]</Signal>
+        <Signal capture_enable="true">adsr_attack_count[13]</Signal>
+        <Signal capture_enable="true">adsr_attack_count[12]</Signal>
+        <Signal capture_enable="true">adsr_attack_count[11]</Signal>
+        <Signal capture_enable="true">adsr_attack_count[10]</Signal>
+        <Signal capture_enable="true">adsr_attack_count[9]</Signal>
+        <Signal capture_enable="true">adsr_attack_count[8]</Signal>
+        <Signal capture_enable="true">adsr_attack_count[7]</Signal>
+        <Signal capture_enable="true">adsr_attack_count[6]</Signal>
+        <Signal capture_enable="true">adsr_attack_count[5]</Signal>
+        <Signal capture_enable="true">adsr_attack_count[4]</Signal>
+        <Signal capture_enable="true">adsr_attack_count[3]</Signal>
+        <Signal capture_enable="true">adsr_attack_count[2]</Signal>
+        <Signal capture_enable="true">adsr_attack_count[1]</Signal>
+        <Signal capture_enable="true">adsr_attack_count[0]</Signal>
+      </Bus>
+      <Bus name="adsr_decay_count[15:0]">
+        <Signal capture_enable="true">adsr_decay_count[15]</Signal>
+        <Signal capture_enable="true">adsr_decay_count[14]</Signal>
+        <Signal capture_enable="true">adsr_decay_count[13]</Signal>
+        <Signal capture_enable="true">adsr_decay_count[12]</Signal>
+        <Signal capture_enable="true">adsr_decay_count[11]</Signal>
+        <Signal capture_enable="true">adsr_decay_count[10]</Signal>
+        <Signal capture_enable="true">adsr_decay_count[9]</Signal>
+        <Signal capture_enable="true">adsr_decay_count[8]</Signal>
+        <Signal capture_enable="true">adsr_decay_count[7]</Signal>
+        <Signal capture_enable="true">adsr_decay_count[6]</Signal>
+        <Signal capture_enable="true">adsr_decay_count[5]</Signal>
+        <Signal capture_enable="true">adsr_decay_count[4]</Signal>
+        <Signal capture_enable="true">adsr_decay_count[3]</Signal>
+        <Signal capture_enable="true">adsr_decay_count[2]</Signal>
+        <Signal capture_enable="true">adsr_decay_count[1]</Signal>
+        <Signal capture_enable="true">adsr_decay_count[0]</Signal>
+      </Bus>
+      <Bus name="adsr_release_count[15:0]">
+        <Signal capture_enable="true">adsr_release_count[15]</Signal>
+        <Signal capture_enable="true">adsr_release_count[14]</Signal>
+        <Signal capture_enable="true">adsr_release_count[13]</Signal>
+        <Signal capture_enable="true">adsr_release_count[12]</Signal>
+        <Signal capture_enable="true">adsr_release_count[11]</Signal>
+        <Signal capture_enable="true">adsr_release_count[10]</Signal>
+        <Signal capture_enable="true">adsr_release_count[9]</Signal>
+        <Signal capture_enable="true">adsr_release_count[8]</Signal>
+        <Signal capture_enable="true">adsr_release_count[7]</Signal>
+        <Signal capture_enable="true">adsr_release_count[6]</Signal>
+        <Signal capture_enable="true">adsr_release_count[5]</Signal>
+        <Signal capture_enable="true">adsr_release_count[4]</Signal>
+        <Signal capture_enable="true">adsr_release_count[3]</Signal>
+        <Signal capture_enable="true">adsr_release_count[2]</Signal>
+        <Signal capture_enable="true">adsr_release_count[1]</Signal>
+        <Signal capture_enable="true">adsr_release_count[0]</Signal>
+      </Bus>
+      <Bus name="adsr_stage_valid[2:0]">
+        <Signal capture_enable="true">adsr_stage_valid[2]</Signal>
+        <Signal capture_enable="true">adsr_stage_valid[1]</Signal>
+        <Signal capture_enable="true">adsr_stage_valid[0]</Signal>
+      </Bus>
+      <Bus name="adsr_stage_overflow[2:0]">
+        <Signal capture_enable="true">adsr_stage_overflow[2]</Signal>
+        <Signal capture_enable="true">adsr_stage_overflow[1]</Signal>
+        <Signal capture_enable="true">adsr_stage_overflow[0]</Signal>
+      </Bus>
+      <Signal capture_enable="true">adsr_stage_done</Signal>
+      <Bus name="adsr_captured_preset[1:0]">
+        <Signal capture_enable="true">adsr_captured_preset[1]</Signal>
+        <Signal capture_enable="true">adsr_captured_preset[0]</Signal>
+      </Bus>
+      <Signal capture_enable="true">adsr_capture_done</Signal>
+    </SignalList>
+    <Triggers>
+      <Trigger index="0">
+        <SignalList>
+          <Signal>adsr_capture_done</Signal>
+        </SignalList>
+      </Trigger>
+      <Trigger index="1" />
+      <Trigger index="2" />
+      <Trigger index="3" />
+      <Trigger index="4" />
+      <Trigger index="5" />
+      <Trigger index="6" />
+      <Trigger index="7" />
+      <Trigger index="8" />
+      <Trigger index="9" />
+      <Trigger index="10" />
+      <Trigger index="11" />
+      <Trigger index="12" />
+      <Trigger index="13" />
+      <Trigger index="14" />
+      <Trigger index="15" />
+    </Triggers>
+    <MatchUnits>
+      <MatchUnit index="0" enabled="1" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="0" />
+      <MatchUnit index="1" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="2" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="3" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="4" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="5" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="6" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="7" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="8" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="9" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="10" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="11" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="12" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="13" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="14" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="15" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+    </MatchUnits>
+    <Expressions type="Static">
+      <Expression>M0</Expression>
+    </Expressions>
+  </AoCore>
+  <GAO_ID>1010011100101001</GAO_ID>
+  <AoCore index="1" sample_clock="chorus_capture_clk" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" trigger_pos="128" module_name="instrument_display_top" force_trigger_by_falling_edge="false">
+    <SignalList>
+      <Bus name="ch_seq[31:0]">
+        <Signal capture_enable="true">ch_seq[31]</Signal>
+        <Signal capture_enable="true">ch_seq[30]</Signal>
+        <Signal capture_enable="true">ch_seq[29]</Signal>
+        <Signal capture_enable="true">ch_seq[28]</Signal>
+        <Signal capture_enable="true">ch_seq[27]</Signal>
+        <Signal capture_enable="true">ch_seq[26]</Signal>
+        <Signal capture_enable="true">ch_seq[25]</Signal>
+        <Signal capture_enable="true">ch_seq[24]</Signal>
+        <Signal capture_enable="true">ch_seq[23]</Signal>
+        <Signal capture_enable="true">ch_seq[22]</Signal>
+        <Signal capture_enable="true">ch_seq[21]</Signal>
+        <Signal capture_enable="true">ch_seq[20]</Signal>
+        <Signal capture_enable="true">ch_seq[19]</Signal>
+        <Signal capture_enable="true">ch_seq[18]</Signal>
+        <Signal capture_enable="true">ch_seq[17]</Signal>
+        <Signal capture_enable="true">ch_seq[16]</Signal>
+        <Signal capture_enable="true">ch_seq[15]</Signal>
+        <Signal capture_enable="true">ch_seq[14]</Signal>
+        <Signal capture_enable="true">ch_seq[13]</Signal>
+        <Signal capture_enable="true">ch_seq[12]</Signal>
+        <Signal capture_enable="true">ch_seq[11]</Signal>
+        <Signal capture_enable="true">ch_seq[10]</Signal>
+        <Signal capture_enable="true">ch_seq[9]</Signal>
+        <Signal capture_enable="true">ch_seq[8]</Signal>
+        <Signal capture_enable="true">ch_seq[7]</Signal>
+        <Signal capture_enable="true">ch_seq[6]</Signal>
+        <Signal capture_enable="true">ch_seq[5]</Signal>
+        <Signal capture_enable="true">ch_seq[4]</Signal>
+        <Signal capture_enable="true">ch_seq[3]</Signal>
+        <Signal capture_enable="true">ch_seq[2]</Signal>
+        <Signal capture_enable="true">ch_seq[1]</Signal>
+        <Signal capture_enable="true">ch_seq[0]</Signal>
+      </Bus>
+      <Bus name="ch_dry[15:0]">
+        <Signal capture_enable="true">ch_dry[15]</Signal>
+        <Signal capture_enable="true">ch_dry[14]</Signal>
+        <Signal capture_enable="true">ch_dry[13]</Signal>
+        <Signal capture_enable="true">ch_dry[12]</Signal>
+        <Signal capture_enable="true">ch_dry[11]</Signal>
+        <Signal capture_enable="true">ch_dry[10]</Signal>
+        <Signal capture_enable="true">ch_dry[9]</Signal>
+        <Signal capture_enable="true">ch_dry[8]</Signal>
+        <Signal capture_enable="true">ch_dry[7]</Signal>
+        <Signal capture_enable="true">ch_dry[6]</Signal>
+        <Signal capture_enable="true">ch_dry[5]</Signal>
+        <Signal capture_enable="true">ch_dry[4]</Signal>
+        <Signal capture_enable="true">ch_dry[3]</Signal>
+        <Signal capture_enable="true">ch_dry[2]</Signal>
+        <Signal capture_enable="true">ch_dry[1]</Signal>
+        <Signal capture_enable="true">ch_dry[0]</Signal>
+      </Bus>
+      <Bus name="ch_newer[15:0]">
+        <Signal capture_enable="true">ch_newer[15]</Signal>
+        <Signal capture_enable="true">ch_newer[14]</Signal>
+        <Signal capture_enable="true">ch_newer[13]</Signal>
+        <Signal capture_enable="true">ch_newer[12]</Signal>
+        <Signal capture_enable="true">ch_newer[11]</Signal>
+        <Signal capture_enable="true">ch_newer[10]</Signal>
+        <Signal capture_enable="true">ch_newer[9]</Signal>
+        <Signal capture_enable="true">ch_newer[8]</Signal>
+        <Signal capture_enable="true">ch_newer[7]</Signal>
+        <Signal capture_enable="true">ch_newer[6]</Signal>
+        <Signal capture_enable="true">ch_newer[5]</Signal>
+        <Signal capture_enable="true">ch_newer[4]</Signal>
+        <Signal capture_enable="true">ch_newer[3]</Signal>
+        <Signal capture_enable="true">ch_newer[2]</Signal>
+        <Signal capture_enable="true">ch_newer[1]</Signal>
+        <Signal capture_enable="true">ch_newer[0]</Signal>
+      </Bus>
+      <Bus name="ch_older[15:0]">
+        <Signal capture_enable="true">ch_older[15]</Signal>
+        <Signal capture_enable="true">ch_older[14]</Signal>
+        <Signal capture_enable="true">ch_older[13]</Signal>
+        <Signal capture_enable="true">ch_older[12]</Signal>
+        <Signal capture_enable="true">ch_older[11]</Signal>
+        <Signal capture_enable="true">ch_older[10]</Signal>
+        <Signal capture_enable="true">ch_older[9]</Signal>
+        <Signal capture_enable="true">ch_older[8]</Signal>
+        <Signal capture_enable="true">ch_older[7]</Signal>
+        <Signal capture_enable="true">ch_older[6]</Signal>
+        <Signal capture_enable="true">ch_older[5]</Signal>
+        <Signal capture_enable="true">ch_older[4]</Signal>
+        <Signal capture_enable="true">ch_older[3]</Signal>
+        <Signal capture_enable="true">ch_older[2]</Signal>
+        <Signal capture_enable="true">ch_older[1]</Signal>
+        <Signal capture_enable="true">ch_older[0]</Signal>
+      </Bus>
+      <Bus name="ch_wet[15:0]">
+        <Signal capture_enable="true">ch_wet[15]</Signal>
+        <Signal capture_enable="true">ch_wet[14]</Signal>
+        <Signal capture_enable="true">ch_wet[13]</Signal>
+        <Signal capture_enable="true">ch_wet[12]</Signal>
+        <Signal capture_enable="true">ch_wet[11]</Signal>
+        <Signal capture_enable="true">ch_wet[10]</Signal>
+        <Signal capture_enable="true">ch_wet[9]</Signal>
+        <Signal capture_enable="true">ch_wet[8]</Signal>
+        <Signal capture_enable="true">ch_wet[7]</Signal>
+        <Signal capture_enable="true">ch_wet[6]</Signal>
+        <Signal capture_enable="true">ch_wet[5]</Signal>
+        <Signal capture_enable="true">ch_wet[4]</Signal>
+        <Signal capture_enable="true">ch_wet[3]</Signal>
+        <Signal capture_enable="true">ch_wet[2]</Signal>
+        <Signal capture_enable="true">ch_wet[1]</Signal>
+        <Signal capture_enable="true">ch_wet[0]</Signal>
+      </Bus>
+      <Bus name="ch_frac[7:0]">
+        <Signal capture_enable="true">ch_frac[7]</Signal>
+        <Signal capture_enable="true">ch_frac[6]</Signal>
+        <Signal capture_enable="true">ch_frac[5]</Signal>
+        <Signal capture_enable="true">ch_frac[4]</Signal>
+        <Signal capture_enable="true">ch_frac[3]</Signal>
+        <Signal capture_enable="true">ch_frac[2]</Signal>
+        <Signal capture_enable="true">ch_frac[1]</Signal>
+        <Signal capture_enable="true">ch_frac[0]</Signal>
+      </Bus>
+      <Bus name="ch_wet_mix[16:0]">
+        <Signal capture_enable="true">ch_wet_mix[16]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[15]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[14]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[13]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[12]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[11]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[10]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[9]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[8]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[7]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[6]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[5]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[4]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[3]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[2]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[1]</Signal>
+        <Signal capture_enable="true">ch_wet_mix[0]</Signal>
+      </Bus>
+      <Bus name="ch_sum[16:0]">
+        <Signal capture_enable="true">ch_sum[16]</Signal>
+        <Signal capture_enable="true">ch_sum[15]</Signal>
+        <Signal capture_enable="true">ch_sum[14]</Signal>
+        <Signal capture_enable="true">ch_sum[13]</Signal>
+        <Signal capture_enable="true">ch_sum[12]</Signal>
+        <Signal capture_enable="true">ch_sum[11]</Signal>
+        <Signal capture_enable="true">ch_sum[10]</Signal>
+        <Signal capture_enable="true">ch_sum[9]</Signal>
+        <Signal capture_enable="true">ch_sum[8]</Signal>
+        <Signal capture_enable="true">ch_sum[7]</Signal>
+        <Signal capture_enable="true">ch_sum[6]</Signal>
+        <Signal capture_enable="true">ch_sum[5]</Signal>
+        <Signal capture_enable="true">ch_sum[4]</Signal>
+        <Signal capture_enable="true">ch_sum[3]</Signal>
+        <Signal capture_enable="true">ch_sum[2]</Signal>
+        <Signal capture_enable="true">ch_sum[1]</Signal>
+        <Signal capture_enable="true">ch_sum[0]</Signal>
+      </Bus>
+      <Bus name="ch_expected[15:0]">
+        <Signal capture_enable="true">ch_expected[15]</Signal>
+        <Signal capture_enable="true">ch_expected[14]</Signal>
+        <Signal capture_enable="true">ch_expected[13]</Signal>
+        <Signal capture_enable="true">ch_expected[12]</Signal>
+        <Signal capture_enable="true">ch_expected[11]</Signal>
+        <Signal capture_enable="true">ch_expected[10]</Signal>
+        <Signal capture_enable="true">ch_expected[9]</Signal>
+        <Signal capture_enable="true">ch_expected[8]</Signal>
+        <Signal capture_enable="true">ch_expected[7]</Signal>
+        <Signal capture_enable="true">ch_expected[6]</Signal>
+        <Signal capture_enable="true">ch_expected[5]</Signal>
+        <Signal capture_enable="true">ch_expected[4]</Signal>
+        <Signal capture_enable="true">ch_expected[3]</Signal>
+        <Signal capture_enable="true">ch_expected[2]</Signal>
+        <Signal capture_enable="true">ch_expected[1]</Signal>
+        <Signal capture_enable="true">ch_expected[0]</Signal>
+      </Bus>
+      <Bus name="ch_gain[7:0]">
+        <Signal capture_enable="true">ch_gain[7]</Signal>
+        <Signal capture_enable="true">ch_gain[6]</Signal>
+        <Signal capture_enable="true">ch_gain[5]</Signal>
+        <Signal capture_enable="true">ch_gain[4]</Signal>
+        <Signal capture_enable="true">ch_gain[3]</Signal>
+        <Signal capture_enable="true">ch_gain[2]</Signal>
+        <Signal capture_enable="true">ch_gain[1]</Signal>
+        <Signal capture_enable="true">ch_gain[0]</Signal>
+      </Bus>
+      <Bus name="ch_target[7:0]">
+        <Signal capture_enable="true">ch_target[7]</Signal>
+        <Signal capture_enable="true">ch_target[6]</Signal>
+        <Signal capture_enable="true">ch_target[5]</Signal>
+        <Signal capture_enable="true">ch_target[4]</Signal>
+        <Signal capture_enable="true">ch_target[3]</Signal>
+        <Signal capture_enable="true">ch_target[2]</Signal>
+        <Signal capture_enable="true">ch_target[1]</Signal>
+        <Signal capture_enable="true">ch_target[0]</Signal>
+      </Bus>
+      <Bus name="ch_lfo[25:0]">
+        <Signal capture_enable="true">ch_lfo[25]</Signal>
+        <Signal capture_enable="true">ch_lfo[24]</Signal>
+        <Signal capture_enable="true">ch_lfo[23]</Signal>
+        <Signal capture_enable="true">ch_lfo[22]</Signal>
+        <Signal capture_enable="true">ch_lfo[21]</Signal>
+        <Signal capture_enable="true">ch_lfo[20]</Signal>
+        <Signal capture_enable="true">ch_lfo[19]</Signal>
+        <Signal capture_enable="true">ch_lfo[18]</Signal>
+        <Signal capture_enable="true">ch_lfo[17]</Signal>
+        <Signal capture_enable="true">ch_lfo[16]</Signal>
+        <Signal capture_enable="true">ch_lfo[15]</Signal>
+        <Signal capture_enable="true">ch_lfo[14]</Signal>
+        <Signal capture_enable="true">ch_lfo[13]</Signal>
+        <Signal capture_enable="true">ch_lfo[12]</Signal>
+        <Signal capture_enable="true">ch_lfo[11]</Signal>
+        <Signal capture_enable="true">ch_lfo[10]</Signal>
+        <Signal capture_enable="true">ch_lfo[9]</Signal>
+        <Signal capture_enable="true">ch_lfo[8]</Signal>
+        <Signal capture_enable="true">ch_lfo[7]</Signal>
+        <Signal capture_enable="true">ch_lfo[6]</Signal>
+        <Signal capture_enable="true">ch_lfo[5]</Signal>
+        <Signal capture_enable="true">ch_lfo[4]</Signal>
+        <Signal capture_enable="true">ch_lfo[3]</Signal>
+        <Signal capture_enable="true">ch_lfo[2]</Signal>
+        <Signal capture_enable="true">ch_lfo[1]</Signal>
+        <Signal capture_enable="true">ch_lfo[0]</Signal>
+      </Bus>
+      <Bus name="ch_delay[10:0]">
+        <Signal capture_enable="true">ch_delay[10]</Signal>
+        <Signal capture_enable="true">ch_delay[9]</Signal>
+        <Signal capture_enable="true">ch_delay[8]</Signal>
+        <Signal capture_enable="true">ch_delay[7]</Signal>
+        <Signal capture_enable="true">ch_delay[6]</Signal>
+        <Signal capture_enable="true">ch_delay[5]</Signal>
+        <Signal capture_enable="true">ch_delay[4]</Signal>
+        <Signal capture_enable="true">ch_delay[3]</Signal>
+        <Signal capture_enable="true">ch_delay[2]</Signal>
+        <Signal capture_enable="true">ch_delay[1]</Signal>
+        <Signal capture_enable="true">ch_delay[0]</Signal>
+      </Bus>
+      <Bus name="ch_wr[10:0]">
+        <Signal capture_enable="true">ch_wr[10]</Signal>
+        <Signal capture_enable="true">ch_wr[9]</Signal>
+        <Signal capture_enable="true">ch_wr[8]</Signal>
+        <Signal capture_enable="true">ch_wr[7]</Signal>
+        <Signal capture_enable="true">ch_wr[6]</Signal>
+        <Signal capture_enable="true">ch_wr[5]</Signal>
+        <Signal capture_enable="true">ch_wr[4]</Signal>
+        <Signal capture_enable="true">ch_wr[3]</Signal>
+        <Signal capture_enable="true">ch_wr[2]</Signal>
+        <Signal capture_enable="true">ch_wr[1]</Signal>
+        <Signal capture_enable="true">ch_wr[0]</Signal>
+      </Bus>
+      <Bus name="ch_rd[10:0]">
+        <Signal capture_enable="true">ch_rd[10]</Signal>
+        <Signal capture_enable="true">ch_rd[9]</Signal>
+        <Signal capture_enable="true">ch_rd[8]</Signal>
+        <Signal capture_enable="true">ch_rd[7]</Signal>
+        <Signal capture_enable="true">ch_rd[6]</Signal>
+        <Signal capture_enable="true">ch_rd[5]</Signal>
+        <Signal capture_enable="true">ch_rd[4]</Signal>
+        <Signal capture_enable="true">ch_rd[3]</Signal>
+        <Signal capture_enable="true">ch_rd[2]</Signal>
+        <Signal capture_enable="true">ch_rd[1]</Signal>
+        <Signal capture_enable="true">ch_rd[0]</Signal>
+      </Bus>
+      <Signal capture_enable="true">ch_ready</Signal>
+      <Bus name="ch_mode[1:0]">
+        <Signal capture_enable="true">ch_mode[1]</Signal>
+        <Signal capture_enable="true">ch_mode[0]</Signal>
+      </Bus>
+      <Signal capture_enable="true">ch_clip</Signal>
+      <Bus name="ch_clips[15:0]">
+        <Signal capture_enable="true">ch_clips[15]</Signal>
+        <Signal capture_enable="true">ch_clips[14]</Signal>
+        <Signal capture_enable="true">ch_clips[13]</Signal>
+        <Signal capture_enable="true">ch_clips[12]</Signal>
+        <Signal capture_enable="true">ch_clips[11]</Signal>
+        <Signal capture_enable="true">ch_clips[10]</Signal>
+        <Signal capture_enable="true">ch_clips[9]</Signal>
+        <Signal capture_enable="true">ch_clips[8]</Signal>
+        <Signal capture_enable="true">ch_clips[7]</Signal>
+        <Signal capture_enable="true">ch_clips[6]</Signal>
+        <Signal capture_enable="true">ch_clips[5]</Signal>
+        <Signal capture_enable="true">ch_clips[4]</Signal>
+        <Signal capture_enable="true">ch_clips[3]</Signal>
+        <Signal capture_enable="true">ch_clips[2]</Signal>
+        <Signal capture_enable="true">ch_clips[1]</Signal>
+        <Signal capture_enable="true">ch_clips[0]</Signal>
+      </Bus>
+      <Signal capture_enable="true">ch_valid</Signal>
+      <Bus name="ch_output[15:0]">
+        <Signal capture_enable="true">ch_output[15]</Signal>
+        <Signal capture_enable="true">ch_output[14]</Signal>
+        <Signal capture_enable="true">ch_output[13]</Signal>
+        <Signal capture_enable="true">ch_output[12]</Signal>
+        <Signal capture_enable="true">ch_output[11]</Signal>
+        <Signal capture_enable="true">ch_output[10]</Signal>
+        <Signal capture_enable="true">ch_output[9]</Signal>
+        <Signal capture_enable="true">ch_output[8]</Signal>
+        <Signal capture_enable="true">ch_output[7]</Signal>
+        <Signal capture_enable="true">ch_output[6]</Signal>
+        <Signal capture_enable="true">ch_output[5]</Signal>
+        <Signal capture_enable="true">ch_output[4]</Signal>
+        <Signal capture_enable="true">ch_output[3]</Signal>
+        <Signal capture_enable="true">ch_output[2]</Signal>
+        <Signal capture_enable="true">ch_output[1]</Signal>
+        <Signal capture_enable="true">ch_output[0]</Signal>
+      </Bus>
+      <Bus name="ch_tag[15:0]">
+        <Signal capture_enable="true">ch_tag[15]</Signal>
+        <Signal capture_enable="true">ch_tag[14]</Signal>
+        <Signal capture_enable="true">ch_tag[13]</Signal>
+        <Signal capture_enable="true">ch_tag[12]</Signal>
+        <Signal capture_enable="true">ch_tag[11]</Signal>
+        <Signal capture_enable="true">ch_tag[10]</Signal>
+        <Signal capture_enable="true">ch_tag[9]</Signal>
+        <Signal capture_enable="true">ch_tag[8]</Signal>
+        <Signal capture_enable="true">ch_tag[7]</Signal>
+        <Signal capture_enable="true">ch_tag[6]</Signal>
+        <Signal capture_enable="true">ch_tag[5]</Signal>
+        <Signal capture_enable="true">ch_tag[4]</Signal>
+        <Signal capture_enable="true">ch_tag[3]</Signal>
+        <Signal capture_enable="true">ch_tag[2]</Signal>
+        <Signal capture_enable="true">ch_tag[1]</Signal>
+        <Signal capture_enable="true">ch_tag[0]</Signal>
+      </Bus>
+      <Signal capture_enable="true">ch_test</Signal>
+      <Bus name="ch_adc7[11:0]">
+        <Signal capture_enable="true">ch_adc7[11]</Signal>
+        <Signal capture_enable="true">ch_adc7[10]</Signal>
+        <Signal capture_enable="true">ch_adc7[9]</Signal>
+        <Signal capture_enable="true">ch_adc7[8]</Signal>
+        <Signal capture_enable="true">ch_adc7[7]</Signal>
+        <Signal capture_enable="true">ch_adc7[6]</Signal>
+        <Signal capture_enable="true">ch_adc7[5]</Signal>
+        <Signal capture_enable="true">ch_adc7[4]</Signal>
+        <Signal capture_enable="true">ch_adc7[3]</Signal>
+        <Signal capture_enable="true">ch_adc7[2]</Signal>
+        <Signal capture_enable="true">ch_adc7[1]</Signal>
+        <Signal capture_enable="true">ch_adc7[0]</Signal>
+      </Bus>
+      <Bus name="ch_center[11:0]">
+        <Signal capture_enable="true">ch_center[11]</Signal>
+        <Signal capture_enable="true">ch_center[10]</Signal>
+        <Signal capture_enable="true">ch_center[9]</Signal>
+        <Signal capture_enable="true">ch_center[8]</Signal>
+        <Signal capture_enable="true">ch_center[7]</Signal>
+        <Signal capture_enable="true">ch_center[6]</Signal>
+        <Signal capture_enable="true">ch_center[5]</Signal>
+        <Signal capture_enable="true">ch_center[4]</Signal>
+        <Signal capture_enable="true">ch_center[3]</Signal>
+        <Signal capture_enable="true">ch_center[2]</Signal>
+        <Signal capture_enable="true">ch_center[1]</Signal>
+        <Signal capture_enable="true">ch_center[0]</Signal>
+      </Bus>
+      <Bus name="ch_filtered[11:0]">
+        <Signal capture_enable="true">ch_filtered[11]</Signal>
+        <Signal capture_enable="true">ch_filtered[10]</Signal>
+        <Signal capture_enable="true">ch_filtered[9]</Signal>
+        <Signal capture_enable="true">ch_filtered[8]</Signal>
+        <Signal capture_enable="true">ch_filtered[7]</Signal>
+        <Signal capture_enable="true">ch_filtered[6]</Signal>
+        <Signal capture_enable="true">ch_filtered[5]</Signal>
+        <Signal capture_enable="true">ch_filtered[4]</Signal>
+        <Signal capture_enable="true">ch_filtered[3]</Signal>
+        <Signal capture_enable="true">ch_filtered[2]</Signal>
+        <Signal capture_enable="true">ch_filtered[1]</Signal>
+        <Signal capture_enable="true">ch_filtered[0]</Signal>
+      </Bus>
+      <Signal capture_enable="true">ch_center_valid</Signal>
+      <Signal capture_enable="true">ch_stale</Signal>
+      <Signal capture_enable="true">ch_trigger</Signal>
+    </SignalList>
+    <Triggers>
+      <Trigger index="0">
+        <SignalList>
+          <Signal>ch_trigger</Signal>
+        </SignalList>
+      </Trigger>
+      <Trigger index="1" />
+      <Trigger index="2" />
+      <Trigger index="3" />
+      <Trigger index="4" />
+      <Trigger index="5" />
+      <Trigger index="6" />
+      <Trigger index="7" />
+      <Trigger index="8" />
+      <Trigger index="9" />
+      <Trigger index="10" />
+      <Trigger index="11" />
+      <Trigger index="12" />
+      <Trigger index="13" />
+      <Trigger index="14" />
+      <Trigger index="15" />
+    </Triggers>
+    <MatchUnits>
+      <MatchUnit index="0" enabled="1" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="0" />
+      <MatchUnit index="1" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="2" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="3" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="4" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="5" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="6" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="7" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="8" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="9" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="10" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="11" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="12" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="13" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="14" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="15" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+    </MatchUnits>
+    <Expressions type="Static">
+      <Expression>M0</Expression>
+    </Expressions>
+  </AoCore>
+  <AoCore index="2" sample_clock="audio_clk_12m288" trig_type="0" storage_depth="1024" window_num="1" capture_amount="1024" trigger_pos="128" module_name="instrument_display_top" force_trigger_by_falling_edge="false">
+    <SignalList>
+      <Bus name="gao_model[7:0]">
+        <Signal capture_enable="true">gao_model[7]</Signal>
+        <Signal capture_enable="true">gao_model[6]</Signal>
+        <Signal capture_enable="true">gao_model[5]</Signal>
+        <Signal capture_enable="true">gao_model[4]</Signal>
+        <Signal capture_enable="true">gao_model[3]</Signal>
+        <Signal capture_enable="true">gao_model[2]</Signal>
+        <Signal capture_enable="true">gao_model[1]</Signal>
+        <Signal capture_enable="true">gao_model[0]</Signal>
+      </Bus>
+      <Signal capture_enable="true">gao_lane</Signal>
+      <Bus name="gao_voice[1:0]">
+        <Signal capture_enable="true">gao_voice[1]</Signal>
+        <Signal capture_enable="true">gao_voice[0]</Signal>
+      </Bus>
+      <Bus name="gao_generation[7:0]">
+        <Signal capture_enable="true">gao_generation[7]</Signal>
+        <Signal capture_enable="true">gao_generation[6]</Signal>
+        <Signal capture_enable="true">gao_generation[5]</Signal>
+        <Signal capture_enable="true">gao_generation[4]</Signal>
+        <Signal capture_enable="true">gao_generation[3]</Signal>
+        <Signal capture_enable="true">gao_generation[2]</Signal>
+        <Signal capture_enable="true">gao_generation[1]</Signal>
+        <Signal capture_enable="true">gao_generation[0]</Signal>
+      </Bus>
+      <Bus name="gao_sample[15:0]">
+        <Signal capture_enable="true">gao_sample[15]</Signal>
+        <Signal capture_enable="true">gao_sample[14]</Signal>
+        <Signal capture_enable="true">gao_sample[13]</Signal>
+        <Signal capture_enable="true">gao_sample[12]</Signal>
+        <Signal capture_enable="true">gao_sample[11]</Signal>
+        <Signal capture_enable="true">gao_sample[10]</Signal>
+        <Signal capture_enable="true">gao_sample[9]</Signal>
+        <Signal capture_enable="true">gao_sample[8]</Signal>
+        <Signal capture_enable="true">gao_sample[7]</Signal>
+        <Signal capture_enable="true">gao_sample[6]</Signal>
+        <Signal capture_enable="true">gao_sample[5]</Signal>
+        <Signal capture_enable="true">gao_sample[4]</Signal>
+        <Signal capture_enable="true">gao_sample[3]</Signal>
+        <Signal capture_enable="true">gao_sample[2]</Signal>
+        <Signal capture_enable="true">gao_sample[1]</Signal>
+        <Signal capture_enable="true">gao_sample[0]</Signal>
+      </Bus>
+      <Bus name="gao_index[5:0]">
+        <Signal capture_enable="true">gao_index[5]</Signal>
+        <Signal capture_enable="true">gao_index[4]</Signal>
+        <Signal capture_enable="true">gao_index[3]</Signal>
+        <Signal capture_enable="true">gao_index[2]</Signal>
+        <Signal capture_enable="true">gao_index[1]</Signal>
+        <Signal capture_enable="true">gao_index[0]</Signal>
+      </Bus>
+      <Signal capture_enable="true">busy</Signal>
+      <Signal capture_enable="true">gao_accept</Signal>
+      <Signal capture_enable="true">gao_done</Signal>
+      <Signal capture_enable="true">gao_overrun</Signal>
+      <Bus name="gao_alpha[8:0]">
+        <Signal capture_enable="true">gao_alpha[8]</Signal>
+        <Signal capture_enable="true">gao_alpha[7]</Signal>
+        <Signal capture_enable="true">gao_alpha[6]</Signal>
+        <Signal capture_enable="true">gao_alpha[5]</Signal>
+        <Signal capture_enable="true">gao_alpha[4]</Signal>
+        <Signal capture_enable="true">gao_alpha[3]</Signal>
+        <Signal capture_enable="true">gao_alpha[2]</Signal>
+        <Signal capture_enable="true">gao_alpha[1]</Signal>
+        <Signal capture_enable="true">gao_alpha[0]</Signal>
+      </Bus>
+      <Signal capture_enable="true">gao_from</Signal>
+      <Signal capture_enable="true">gao_to</Signal>
+      <Bus name="gao_phase18[17:0]">
+        <Signal capture_enable="true">gao_phase18[17]</Signal>
+        <Signal capture_enable="true">gao_phase18[16]</Signal>
+        <Signal capture_enable="true">gao_phase18[15]</Signal>
+        <Signal capture_enable="true">gao_phase18[14]</Signal>
+        <Signal capture_enable="true">gao_phase18[13]</Signal>
+        <Signal capture_enable="true">gao_phase18[12]</Signal>
+        <Signal capture_enable="true">gao_phase18[11]</Signal>
+        <Signal capture_enable="true">gao_phase18[10]</Signal>
+        <Signal capture_enable="true">gao_phase18[9]</Signal>
+        <Signal capture_enable="true">gao_phase18[8]</Signal>
+        <Signal capture_enable="true">gao_phase18[7]</Signal>
+        <Signal capture_enable="true">gao_phase18[6]</Signal>
+        <Signal capture_enable="true">gao_phase18[5]</Signal>
+        <Signal capture_enable="true">gao_phase18[4]</Signal>
+        <Signal capture_enable="true">gao_phase18[3]</Signal>
+        <Signal capture_enable="true">gao_phase18[2]</Signal>
+        <Signal capture_enable="true">gao_phase18[1]</Signal>
+        <Signal capture_enable="true">gao_phase18[0]</Signal>
+      </Bus>
+      <Bus name="gao_weight[7:0]">
+        <Signal capture_enable="true">gao_weight[7]</Signal>
+        <Signal capture_enable="true">gao_weight[6]</Signal>
+        <Signal capture_enable="true">gao_weight[5]</Signal>
+        <Signal capture_enable="true">gao_weight[4]</Signal>
+        <Signal capture_enable="true">gao_weight[3]</Signal>
+        <Signal capture_enable="true">gao_weight[2]</Signal>
+        <Signal capture_enable="true">gao_weight[1]</Signal>
+        <Signal capture_enable="true">gao_weight[0]</Signal>
+      </Bus>
+      <Bus name="gao_gain[7:0]">
+        <Signal capture_enable="true">gao_gain[7]</Signal>
+        <Signal capture_enable="true">gao_gain[6]</Signal>
+        <Signal capture_enable="true">gao_gain[5]</Signal>
+        <Signal capture_enable="true">gao_gain[4]</Signal>
+        <Signal capture_enable="true">gao_gain[3]</Signal>
+        <Signal capture_enable="true">gao_gain[2]</Signal>
+        <Signal capture_enable="true">gao_gain[1]</Signal>
+        <Signal capture_enable="true">gao_gain[0]</Signal>
+      </Bus>
+      <Bus name="gao_term[23:0]">
+        <Signal capture_enable="true">gao_term[23]</Signal>
+        <Signal capture_enable="true">gao_term[22]</Signal>
+        <Signal capture_enable="true">gao_term[21]</Signal>
+        <Signal capture_enable="true">gao_term[20]</Signal>
+        <Signal capture_enable="true">gao_term[19]</Signal>
+        <Signal capture_enable="true">gao_term[18]</Signal>
+        <Signal capture_enable="true">gao_term[17]</Signal>
+        <Signal capture_enable="true">gao_term[16]</Signal>
+        <Signal capture_enable="true">gao_term[15]</Signal>
+        <Signal capture_enable="true">gao_term[14]</Signal>
+        <Signal capture_enable="true">gao_term[13]</Signal>
+        <Signal capture_enable="true">gao_term[12]</Signal>
+        <Signal capture_enable="true">gao_term[11]</Signal>
+        <Signal capture_enable="true">gao_term[10]</Signal>
+        <Signal capture_enable="true">gao_term[9]</Signal>
+        <Signal capture_enable="true">gao_term[8]</Signal>
+        <Signal capture_enable="true">gao_term[7]</Signal>
+        <Signal capture_enable="true">gao_term[6]</Signal>
+        <Signal capture_enable="true">gao_term[5]</Signal>
+        <Signal capture_enable="true">gao_term[4]</Signal>
+        <Signal capture_enable="true">gao_term[3]</Signal>
+        <Signal capture_enable="true">gao_term[2]</Signal>
+        <Signal capture_enable="true">gao_term[1]</Signal>
+        <Signal capture_enable="true">gao_term[0]</Signal>
+      </Bus>
+      <Bus name="gao_sum_before[23:0]">
+        <Signal capture_enable="true">gao_sum_before[23]</Signal>
+        <Signal capture_enable="true">gao_sum_before[22]</Signal>
+        <Signal capture_enable="true">gao_sum_before[21]</Signal>
+        <Signal capture_enable="true">gao_sum_before[20]</Signal>
+        <Signal capture_enable="true">gao_sum_before[19]</Signal>
+        <Signal capture_enable="true">gao_sum_before[18]</Signal>
+        <Signal capture_enable="true">gao_sum_before[17]</Signal>
+        <Signal capture_enable="true">gao_sum_before[16]</Signal>
+        <Signal capture_enable="true">gao_sum_before[15]</Signal>
+        <Signal capture_enable="true">gao_sum_before[14]</Signal>
+        <Signal capture_enable="true">gao_sum_before[13]</Signal>
+        <Signal capture_enable="true">gao_sum_before[12]</Signal>
+        <Signal capture_enable="true">gao_sum_before[11]</Signal>
+        <Signal capture_enable="true">gao_sum_before[10]</Signal>
+        <Signal capture_enable="true">gao_sum_before[9]</Signal>
+        <Signal capture_enable="true">gao_sum_before[8]</Signal>
+        <Signal capture_enable="true">gao_sum_before[7]</Signal>
+        <Signal capture_enable="true">gao_sum_before[6]</Signal>
+        <Signal capture_enable="true">gao_sum_before[5]</Signal>
+        <Signal capture_enable="true">gao_sum_before[4]</Signal>
+        <Signal capture_enable="true">gao_sum_before[3]</Signal>
+        <Signal capture_enable="true">gao_sum_before[2]</Signal>
+        <Signal capture_enable="true">gao_sum_before[1]</Signal>
+        <Signal capture_enable="true">gao_sum_before[0]</Signal>
+      </Bus>
+      <Bus name="base_latch[31:0]">
+        <Signal capture_enable="true">base_latch[31]</Signal>
+        <Signal capture_enable="true">base_latch[30]</Signal>
+        <Signal capture_enable="true">base_latch[29]</Signal>
+        <Signal capture_enable="true">base_latch[28]</Signal>
+        <Signal capture_enable="true">base_latch[27]</Signal>
+        <Signal capture_enable="true">base_latch[26]</Signal>
+        <Signal capture_enable="true">base_latch[25]</Signal>
+        <Signal capture_enable="true">base_latch[24]</Signal>
+        <Signal capture_enable="true">base_latch[23]</Signal>
+        <Signal capture_enable="true">base_latch[22]</Signal>
+        <Signal capture_enable="true">base_latch[21]</Signal>
+        <Signal capture_enable="true">base_latch[20]</Signal>
+        <Signal capture_enable="true">base_latch[19]</Signal>
+        <Signal capture_enable="true">base_latch[18]</Signal>
+        <Signal capture_enable="true">base_latch[17]</Signal>
+        <Signal capture_enable="true">base_latch[16]</Signal>
+        <Signal capture_enable="true">base_latch[15]</Signal>
+        <Signal capture_enable="true">base_latch[14]</Signal>
+        <Signal capture_enable="true">base_latch[13]</Signal>
+        <Signal capture_enable="true">base_latch[12]</Signal>
+        <Signal capture_enable="true">base_latch[11]</Signal>
+        <Signal capture_enable="true">base_latch[10]</Signal>
+        <Signal capture_enable="true">base_latch[9]</Signal>
+        <Signal capture_enable="true">base_latch[8]</Signal>
+        <Signal capture_enable="true">base_latch[7]</Signal>
+        <Signal capture_enable="true">base_latch[6]</Signal>
+        <Signal capture_enable="true">base_latch[5]</Signal>
+        <Signal capture_enable="true">base_latch[4]</Signal>
+        <Signal capture_enable="true">base_latch[3]</Signal>
+        <Signal capture_enable="true">base_latch[2]</Signal>
+        <Signal capture_enable="true">base_latch[1]</Signal>
+        <Signal capture_enable="true">base_latch[0]</Signal>
+      </Bus>
+      <Bus name="gao_pcm[15:0]">
+        <Signal capture_enable="true">gao_pcm[15]</Signal>
+        <Signal capture_enable="true">gao_pcm[14]</Signal>
+        <Signal capture_enable="true">gao_pcm[13]</Signal>
+        <Signal capture_enable="true">gao_pcm[12]</Signal>
+        <Signal capture_enable="true">gao_pcm[11]</Signal>
+        <Signal capture_enable="true">gao_pcm[10]</Signal>
+        <Signal capture_enable="true">gao_pcm[9]</Signal>
+        <Signal capture_enable="true">gao_pcm[8]</Signal>
+        <Signal capture_enable="true">gao_pcm[7]</Signal>
+        <Signal capture_enable="true">gao_pcm[6]</Signal>
+        <Signal capture_enable="true">gao_pcm[5]</Signal>
+        <Signal capture_enable="true">gao_pcm[4]</Signal>
+        <Signal capture_enable="true">gao_pcm[3]</Signal>
+        <Signal capture_enable="true">gao_pcm[2]</Signal>
+        <Signal capture_enable="true">gao_pcm[1]</Signal>
+        <Signal capture_enable="true">gao_pcm[0]</Signal>
+      </Bus>
+    </SignalList>
+    <Triggers>
+      <Trigger index="0">
+        <SignalList>
+          <Signal>gao_trigger32</Signal>
+        </SignalList>
+      </Trigger>
+      <Trigger index="1" />
+      <Trigger index="2" />
+      <Trigger index="3" />
+      <Trigger index="4" />
+      <Trigger index="5" />
+      <Trigger index="6" />
+      <Trigger index="7" />
+      <Trigger index="8" />
+      <Trigger index="9" />
+      <Trigger index="10" />
+      <Trigger index="11" />
+      <Trigger index="12" />
+      <Trigger index="13" />
+      <Trigger index="14" />
+      <Trigger index="15" />
+    </Triggers>
+    <MatchUnits>
+      <MatchUnit index="0" enabled="1" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="0" />
+      <MatchUnit index="1" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="2" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="3" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="4" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="5" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="6" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="7" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="8" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="9" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="10" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="11" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="12" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="13" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="14" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+      <MatchUnit index="15" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1="0" trigger="0" />
+    </MatchUnits>
+    <Expressions type="Static">
+      <Expression>M0</Expression>
+    </Expressions>
+  </AoCore>
+</GAO_CONFIG>

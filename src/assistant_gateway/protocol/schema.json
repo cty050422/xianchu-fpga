@@ -1,0 +1,120 @@
+{
+  "protocol": "chordcloud-config",
+  "version": 1,
+  "outer_frame": {
+    "sync": 165,
+    "sum8_covers": ["sync", "type", "len", "payload"],
+    "max_len_new": 96,
+    "legacy_types": {
+      "33": { "name": "wave", "len": 51 },
+      "34": { "name": "performance", "len": 39 },
+      "35": { "name": "status", "len": 40 }
+    }
+  },
+  "payload_header": {
+    "version": 1,
+    "layout": ["version:u8", "seq:u16le", "opcode:u8", "session:u32le", "body:bytes", "crc16:u16le"],
+    "fixed_bytes": 10,
+    "max_body": 86,
+    "max_chunk_data": 64,
+    "crc": {
+      "algorithm": "CRC-16/CCITT-FALSE",
+      "poly": 4129,
+      "init": 65535,
+      "refin": false,
+      "refout": false,
+      "xorout": 0,
+      "covers": ["type", "len", "payload_before_crc"],
+      "check_ascii_123456789": 10673
+    }
+  },
+  "types": {
+    "48": "command",
+    "49": "reply",
+    "50": "config_snapshot",
+    "51": "song_status",
+    "52": "performance_event"
+  },
+  "status": {
+    "0": "APPLIED",
+    "1": "STAGED",
+    "16": "UNSUPPORTED",
+    "17": "RANGE",
+    "18": "BUSY",
+    "19": "STALE",
+    "20": "HELD",
+    "21": "NOT_OWNER",
+    "22": "INCOMPLETE",
+    "23": "INTEGRITY"
+  },
+  "opcodes": {
+    "1": { "name": "HELLO", "request": ["proto_min:u8", "proto_max:u8"], "reply": ["proto:u8", "caps:u16le", "fw_tag:u16le"] },
+    "2": { "name": "GET_SCHEMA", "request": ["field_id:u8"], "reply": ["field_id:u8", "type:u8", "len:u8", "min:u8", "max:u8"] },
+    "3": { "name": "GET_STATE", "request": [], "reply": ["config_epoch:u16le", "caps:u16le", "preset:u8", "group:u8", "octave:u8", "calibrated:u8", "gates:u8", "song_state:u8", "guide_state:u8", "dropped:u16le"] },
+    "4": { "name": "CLAIM_CONTROL", "request": [], "reply": ["lease_ms:u16le"] },
+    "5": { "name": "RELEASE_CONTROL", "request": [], "reply": [] },
+    "16": { "name": "CONFIG_BEGIN", "request": ["total_len:u16le", "field_count:u8"], "reply": [] },
+    "17": { "name": "CONFIG_SET", "request": ["offset:u16le", "data:bytes"], "reply": [] },
+    "18": { "name": "CONFIG_VALIDATE", "request": [], "reply": ["violations:u8", "first_field:u8"] },
+    "19": { "name": "CONFIG_COMMIT", "request": [], "reply": ["epoch:u16le", "applied_tick:u32le"] },
+    "20": { "name": "CONFIG_ABORT", "request": [], "reply": [] },
+    "21": { "name": "USER_DEFAULTS", "request": ["mask:u16le"], "reply": ["epoch:u16le"] },
+    "32": { "name": "CAL_START", "request": ["zone_mask:u8"], "reply": ["accepted_mask:u8"] },
+    "33": { "name": "CAL_STATUS", "request": [], "reply": ["state:u8", "calibrated:u8", "refused_count:u16le"] },
+    "34": { "name": "PANIC", "request": ["mode:u8"], "reply": [] },
+    "48": { "name": "SONG_BEGIN", "request": ["song_id:u16le", "total_len:u16le", "crc32:u32le"], "reply": ["upload_id:u8"] },
+    "49": { "name": "SONG_CHUNK", "request": ["upload_id:u8", "offset:u16le", "len:u8", "data:bytes"], "reply": ["received:u16le"] },
+    "50": { "name": "SONG_VERIFY", "request": [], "reply": ["crc32:u32le", "ok:u8"] },
+    "51": { "name": "SONG_COMMIT", "request": [], "reply": ["slot:u8"] },
+    "52": { "name": "SONG_SELECT", "request": ["slot:u8"], "reply": ["slot:u8"] },
+    "53": { "name": "GUIDE_START", "request": ["slot:u8", "count_in_beats:u8"], "reply": [] },
+    "54": { "name": "GUIDE_PAUSE", "request": ["pause:u8"], "reply": [] },
+    "55": { "name": "GUIDE_STOP", "request": [], "reply": [] },
+    "56": { "name": "GUIDE_GET_CATALOG", "request": [], "reply": ["count:u8"] },
+    "64": { "name": "EVENT_LOG_READ", "request": ["from_seq:u32le", "max_count:u8"], "reply": ["count:u8", "dropped:u16le"] }
+  },
+  "config": {
+    "encoding": "fixed_field_order_then_value_bytes",
+    "fields": [
+      { "id": 1, "name": "note_zone0", "type": "u8", "min": 36, "max": 96, "readonly": false },
+      { "id": 2, "name": "note_zone1", "type": "u8", "min": 36, "max": 96, "readonly": false },
+      { "id": 3, "name": "note_zone2", "type": "u8", "min": 36, "max": 96, "readonly": false },
+      { "id": 4, "name": "note_zone3", "type": "u8", "min": 36, "max": 96, "readonly": false },
+      { "id": 5, "name": "on_threshold_zone0", "type": "u16le", "min": 16, "max": 4095, "readonly": false },
+      { "id": 6, "name": "on_threshold_zone1", "type": "u16le", "min": 16, "max": 4095, "readonly": false },
+      { "id": 7, "name": "on_threshold_zone2", "type": "u16le", "min": 16, "max": 4095, "readonly": false },
+      { "id": 8, "name": "on_threshold_zone3", "type": "u16le", "min": 16, "max": 4095, "readonly": false },
+      { "id": 9, "name": "curve_zone0", "type": "u8", "min": 0, "max": 7, "readonly": false },
+      { "id": 10, "name": "curve_zone1", "type": "u8", "min": 0, "max": 7, "readonly": false },
+      { "id": 11, "name": "curve_zone2", "type": "u8", "min": 0, "max": 7, "readonly": false },
+      { "id": 12, "name": "curve_zone3", "type": "u8", "min": 0, "max": 7, "readonly": false },
+      { "id": 13, "name": "bend_range_semitones", "type": "u8", "min": 1, "max": 12, "readonly": false },
+      { "id": 14, "name": "vibrato_depth", "type": "u8", "min": 0, "max": 127, "readonly": false },
+      { "id": 15, "name": "axis_deadzone", "type": "u8", "min": 0, "max": 64, "readonly": false },
+      { "id": 16, "name": "partial_target", "type": "u8", "min": 2, "max": 32, "readonly": false },
+      { "id": 17, "name": "chorus_wet_max", "type": "u8", "min": 0, "max": 64, "readonly": false },
+      { "id": 18, "name": "user_attenuation", "type": "u8", "min": 0, "max": 64, "readonly": false },
+      { "id": 19, "name": "pa_enable_delay", "type": "u8", "min": 1, "max": 64, "readonly": true },
+      { "id": 20, "name": "next_preset", "type": "u8", "min": 0, "max": 1, "readonly": false },
+      { "id": 21, "name": "next_group", "type": "u8", "min": 0, "max": 1, "readonly": false },
+      { "id": 22, "name": "next_octave", "type": "u8", "min": 0, "max": 1, "readonly": false }
+    ],
+    "commit_preconditions": [
+      "zone_gates == 0 (every FSR released)",
+      "samples fresh (no stale channel)",
+      "no calibration transaction in progress",
+      "no song upload writing the active bank",
+      "control lease held by this session",
+      "all fields inside range",
+      "config epoch unchanged since CONFIG_BEGIN"
+    ]
+  },
+  "limits": {
+    "max_config_bytes": 86,
+    "max_upload_bytes": 8192,
+    "max_song_steps": 1024,
+    "ppqn": 96,
+    "bpm_min": 30,
+    "bpm_max": 180
+  }
+}

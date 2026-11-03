@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "弦触·云声",
+  "disableScroll": true,
+  "usingComponents": {
+    "playback-bar": "/components/playback-bar/playback-bar"
+  }
+}

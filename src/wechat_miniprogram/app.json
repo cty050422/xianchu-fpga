@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/catalog/catalog",
+    "pages/settings/settings",
+    "pages/audition/audition"
+  ],
+  "tabBar": {
+    "color": "#91a0a5",
+    "selectedColor": "#99e5ca",
+    "backgroundColor": "#10181d",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "演奏",
+        "iconPath": "assets/tab-instrument.png",
+        "selectedIconPath": "assets/tab-instrument-active.png"
+      },
+      {
+        "pagePath": "pages/catalog/catalog",
+        "text": "曲库",
+        "iconPath": "assets/tab-catalog.png",
+        "selectedIconPath": "assets/tab-catalog-active.png"
+      },
+      {
+        "pagePath": "pages/settings/settings",
+        "text": "设备",
+        "iconPath": "assets/tab-settings.png",
+        "selectedIconPath": "assets/tab-settings-active.png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarTitleText": "弦触·云声",
+    "navigationBarBackgroundColor": "#0d1114",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0d1114"
+  },
+  "sitemapLocation": "sitemap.json"
+}

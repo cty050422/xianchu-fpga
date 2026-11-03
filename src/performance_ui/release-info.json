@@ -1,0 +1,8 @@
+{
+  "ui_package_id": "XianChu 1.0.0",
+  "usability_revision": 2,
+  "expected_s3": "XC-LINK-R3-LIVE-20261101",
+  "expected_fpga_sha256": "057914340f0622d8834c2aaa1f5e1b192ec7541f47c4647c4b228558b5a03fcd",
+  "actual_hardware_identity_verified": false,
+  "note": "Expected matching release artifacts; not programmed-device identity."
+}

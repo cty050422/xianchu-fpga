@@ -1,0 +1,13 @@
+{
+  "node": "24.18.0",
+  "python": "3.12.10",
+  "gowin": "Education V1.9.11.03",
+  "arduino_esp32_core": "3.3.12",
+  "arduino_libraries": {
+    "Adafruit GFX Library": "1.13.0",
+    "Adafruit SSD1306": "2.5.17",
+    "Adafruit BusIO": "1.17.4"
+  },
+  "font_generator_pillow": "13.0.0",
+  "optional_mp3_decoder": "1.0.3"
+}

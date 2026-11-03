@@ -1,0 +1,24 @@
+<view class="audition-page">
+ <view class="audition-head"><text class="eyebrow">合成试听</text><text class="link-state">{{linkLabel}}</text><view class="track-title">{{title}}</view><text class="track-source">{{source || '曲库 · MIDI · 录音转谱'}}</text></view>
+ <view class="audition-content">
+  <view class="score-surface" wx:if="{{loaded}}">
+   <view class="score-summary"><text>{{steps}} 步</text><text>{{duration}} 秒</text><picker range="{{parts}}" value="{{segment}}" bindchange="choosePart"><text>{{parts[segment]}}⌄</text></picker></view>
+   <view class="piano-roll" aria-label="音高与时长预览"><view class="roll-rule one"></view><view class="roll-rule two"></view><view class="roll-rule three"></view><view wx:for="{{bars}}" wx:key="id" class="note-block" style="left:{{item.left}}%;width:{{item.width}}%;top:{{item.top}}%"><text>{{item.name}}</text></view></view>
+   <view class="roll-caption"><text>音高 ↑</text><text>时间 →</text><button bindtap="openEdit">修订音符</button></view>
+   <view class="timbre-row"><text>乐器音色</text><picker range="{{presets}}" value="{{preset}}" bindchange="choosePreset"><text>{{presets[preset]}} ⌄</text></picker></view>
+   <view class="score-notes"><text wx:for="{{warnings}}" wx:key="*this">{{item}}</text></view>
+  </view>
+  <view class="empty-score" wx:else><text class="empty-note">♩</text><text>先选一段旋律</text><text class="empty-caption">在曲库选择曲目，或导入 MIDI</text></view>
+  <view class="import-actions"><button bindtap="importMidi" disabled="{{loading}}">导入 MIDI</button><button bindtap="openOnline" disabled="{{loading}}">在线曲谱 ↗</button></view>
+  <view class="rec-card" aria-label="事件录音">
+   <view class="rec-head"><text>事件录音（非音频；FPGA合成回放）</text><button bindtap="toggleRecording" class="{{rec.active ? 'recording' : ''}}">{{rec.active ? '■ 停止录音' : '● 开始录音'}}</button></view>
+   <text class="rec-meta" wx:if="{{rec.count}}">{{rec.count}} 个事件 · {{rec.seconds}} 秒{{rec.loss ? ' · 含丢失标记' : ''}}{{rec.saved ? ' · 已保存' : ''}}</text>
+   <text class="rec-meta" wx:else>录制乐器实际接受的演奏事件（音符/时值/声部），保存为 JSON；回放由 FPGA 逐样本重新合成</text>
+   <button bindtap="playRecording" disabled="{{rec.active}}">录音转试听 ▶</button>
+  </view>
+  <view class="grid-option"><text>导入时使用 20 毫秒节拍网格</text><switch checked="{{quantize}}" bindchange="toggleGrid" color="#80d2b5" /></view>
+ </view>
+ <view class="audition-footer"><view class="audition-status"><text>{{loading ? '正在处理曲谱…' : status}}</text><text>{{phase === 'uploading' ? progress + '%' : phase === 'playing' ? step + ' / ' + steps : ''}}</text></view><view class="audition-error" role="status">{{error}}</view><view class="transport"><button class="stop" bindtap="stop">■ 停止</button><button class="start" bindtap="{{canPlay ? 'play' : 'openDevice'}}" disabled="{{!loaded || loading || phase === 'uploading' || phase === 'starting' || phase === 'playing' || phase === 'stopping'}}">{{canPlay ? '乐器试听 ▶' : '连接乐器 ↗'}}</button></view></view>
+ <view wx:if="{{onlineOpen}}" class="modal-mask"><view class="music-sheet"><view class="sheet-header"><text>在线曲谱</text><button bindtap="closeOnline">关闭</button></view><text class="sheet-hint">公共领域乐谱 · 下载后预览，按段试听</text><view wx:for="{{onlineItems}}" wx:key="id" class="online-song" data-id="{{item.id}}" bindtap="downloadOnline"><text>{{item.title}}</text><text>{{item.composer}} · {{item.source}}</text><text>下载曲谱 ↗</text></view></view></view>
+ <view wx:if="{{editOpen}}" class="modal-mask"><view class="music-sheet"><view class="sheet-header"><text>修订音符</text><button bindtap="closeEdit">关闭</button></view><picker range="{{stepNames}}" value="{{editStep}}" bindchange="editSelect"><view class="edit-picker">{{stepNames[editStep]}} ⌄</view></picker><text class="sheet-hint">音符编号（60=C4），逗号分隔；留空为休止</text><input value="{{editNotes}}" bindinput="inputNotes" placeholder="60,64,67" /><text class="sheet-hint">时长 / 毫秒</text><input value="{{editDuration}}" type="digit" bindinput="inputDuration" /><button class="save-edit" bindtap="saveEdit">保存修订</button><text class="audition-error">{{error}}</text></view></view>
+</view>

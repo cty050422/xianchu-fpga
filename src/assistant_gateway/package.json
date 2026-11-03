@@ -1,0 +1,1 @@
+{"name":"xianchu-local-music-service","version":"1.0.0","private":true,"type":"module","description":"Local symbolic transcription; no paid inference and no PCM playback on FPGA","dependencies":{"mpg123-decoder":"1.0.3"}}

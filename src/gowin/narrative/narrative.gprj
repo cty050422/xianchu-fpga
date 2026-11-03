@@ -1,0 +1,91 @@
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW5AT-60B" pn="GW5AT-LV60PG484AC1/I0">gw5at60b-002</Device>
+    <FileList>
+        <File path="../../rtl/audio_pll_50_to_12m288.v" type="file.verilog" enable="1" />
+        <File path="../../rtl/reset_release_sync.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/input_sync.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/button_debounce.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/two_key_gesture.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/performance_gesture.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/led_score_guide.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/practice_controller.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/mobile_observer.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/audio_sample_tick_div256.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/dds_oscillator.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/phase_mod_oscillator.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/adsr_envelope.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/parameter_slew_limiter.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/voice_core.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/mixer4_saturating.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/pt8211_tx_mono.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/pt8211_tx_stereo.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/mcp3208_adc.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/mcp3208_scanner.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/mcp3208_scan_engine.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/pressure_zone.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/zone_bank.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/zone_input_top.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/pitch_bend.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/thumb_center_calibrator.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/voice_allocator_regions.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/poly_synth_regions.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/zone_note_map.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/event_recorder.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/test_stats_frame.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/uart_tx.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/uart_rx.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/audition_sequencer.sv" type="file.verilog" enable="1" />
+    <File path="../../rtl/esp_score_link.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/vga_font8x8.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/hdmi_video_timing.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/hdmi_dashboard.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/fft_hann_rom256.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/fft_twiddle_rom256.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/fft_coeff_rom.sv" type="file.verilog" enable="1" />
+<File path="../../rtl/fft_fixed_engine.sv" type="file.verilog" enable="1" />
+<File path="../../rtl/fft256_engine.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/config_capability.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/config_session.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/diag_reporter.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/instrument_top.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/fault_guard.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/layer_owner_bind.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/pcm_output_stage.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/sine_table_1024.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/additive_bank_32.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/zone_additive_layer.sv" type="file.verilog" enable="0" />
+        <File path="../../rtl/sine_pair_rom.sv" type="file.verilog" enable="1" />
+<File path="../../rtl/poly_additive_engine.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/voice_status_stream.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/spatial_reverb.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/chorus_delay.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/vibrato_control.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/joystick_axis_center.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/aux_joystick_controls.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/viz_stream.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/instrument_extension_core.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/instrument_extension_top.sv" type="file.verilog" enable="1" />
+        <File path="../../rtl/oled_glyph_rom.sv" type="file.verilog" enable="1" />
+<File path="../../rtl/oled_zh_panel.sv" type="file.verilog" enable="1" />
+
+
+
+
+
+
+
+<File path="../../rtl/digital_latency_probe.sv" type="file.verilog" enable="1" />
+<File path="../../rtl/display_capture.sv" type="file.verilog" enable="1" />
+<File path="../../rtl/display_trace_engine.sv" type="file.verilog" enable="1" />
+<File path="../../rtl/dashboard_zh_font.sv" type="file.verilog" enable="1" />
+<File path="../../rtl/display_dashboard.sv" type="file.verilog" enable="1" />
+<File path="../../rtl/instrument_display_top.sv" type="file.verilog" enable="1" />
+<File path="../../rtl/vendor_display/display_pll.v" type="file.verilog" enable="1" />
+<File path="../../rtl/tmds_encoder.sv" type="file.verilog" enable="1" />
+<File path="../../rtl/dvi_tx_ddr.sv" type="file.verilog" enable="1" />
+<File path="narrative.cst" type="file.cst" enable="1" />
+        <File path="narrative.sdc" type="file.sdc" enable="1" />
+    <File path="../../rtl/adsr_stage_observer.sv" type="file.verilog" enable="1" /><File path="narrative.rao" type="file.gao" enable="1" /></FileList>
+</Project>

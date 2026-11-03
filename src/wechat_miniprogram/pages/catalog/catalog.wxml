@@ -1,0 +1,141 @@
+<view class="page workspace-page catalog-page">
+<view class="workspace-header"><view><view class="workspace-title">曲库</view><text class="page-subtitle">选择练习曲目</text></view><text class="chip {{sourceChip}}">{{sourceLabel}}</text></view>
+  <!-- 服务来源状态：本地HTTP / 离线缓存 / 未配置，永不混淆 -->
+  <view class="card catalog-summary">
+    <view class="row-item">
+      <view>
+        <view class="card-title">曲库</view>
+        <view class="caption">{{total}} 首 · 收藏 {{favorites.length}} 首</view>
+      </view>
+    </view>
+    <view wx:if="{{offline}}" class="chip chip-warn">离线缓存</view>
+  </view>
+
+  <!-- 搜索与筛选 -->
+  <view class="card catalog-filters">
+    <input class="input" placeholder="搜索曲目名称 / 标签" value="{{searchQuery}}"
+      bindinput="onSearchInput" bindconfirm="onSearchConfirm" confirm-type="search" />
+    <view class="filter-row">
+      <view class="filter-group">
+        <button wx:for="{{speedFilters}}" wx:key="key" size="mini"
+          class="filter-btn {{speedFilter === item.key ? 'filter-on' : ''}}"
+          data-key="{{item.key}}" bindtap="onSpeedFilter">{{item.label}}</button>
+      </view>
+      <view class="filter-group">
+        <button wx:for="{{diffFilters}}" wx:key="key" size="mini"
+          class="filter-btn {{diffFilter === item.key ? 'filter-on' : ''}}"
+          data-key="{{item.key}}" bindtap="onDiffFilter">{{item.label}}</button>
+      </view>
+    </view>
+  </view>
+
+  <scroll-view class="workspace-scroll catalog-scroll" scroll-y="{{true}}" enhanced="{{true}}" show-scrollbar="{{false}}" scroll-anchoring="{{false}}">
+  <!-- 状态：加载 / 空 / 错误 -->
+  <view wx:if="{{loading}}" class="empty"><view class="empty-icon">♪</view>加载中</view>
+  <view wx:elif="{{unconfigured && !songs.length}}" class="empty">
+    <view class="empty-icon">♪</view>
+    曲库未连接
+    <view class="caption">在「设备」页设置服务地址。</view>
+  </view>
+  <view wx:elif="{{error}}" class="empty">
+    <view class="empty-icon error-text">!</view>
+    <text class="error-text">{{error}}</text>
+    <button class="btn btn-secondary" bindtap="reload">重试</button>
+  </view>
+  <view wx:elif="{{!songs.length}}" class="empty"><view class="empty-icon">♪</view>没有找到曲目</view>
+
+  <!-- 曲目卡片 -->
+  <view class="card catalog-song" wx:for="{{songs}}" wx:key="songId">
+    <view class="row-item" data-id="{{item.songId}}" bindtap="openDetail">
+      <view class="song-art">{{index + 1 < 10 ? '0' : ''}}{{index + 1}}</view>
+      <view class="song-main">
+        <view class="song-title">{{item.title}}</view>
+        <view class="caption">
+          {{item.bpm ? item.bpm + ' BPM · ' : ''}}难度{{item.difficulty || '?'}} · {{item.stepCount || '?'}}步
+          <text wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this" class="tag"> {{tag}}</text>
+        </view>
+        <view wx:if="{{item.adaptation && !item.adaptation.playable}}" class="caption error-text">
+          不可四区适配：{{item.adaptation.reasonText || item.adaptation.reason}}
+        </view>
+        <view wx:elif="{{item.adaptation && item.adaptation.mapping}}" class="caption">
+          映射：{{item.adaptation.mapping.label}}{{item.adaptation.segments > 1 ? ' · ' + item.adaptation.segments + '段' : ''}}
+        </view>
+      </view>
+      <view class="song-side">
+        <view class="chip {{item.isFavorite ? 'chip-ok' : 'chip-neutral'}}"
+          data-id="{{item.songId}}" catchtap="toggleFavorite">
+          {{item.isFavorite ? '★ 已收藏' : '☆ 收藏'}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分页 -->
+  <view class="btn-row" wx:if="{{totalPages > 1}}">
+    <button class="btn btn-secondary {{page <= 1 ? 'btn-disabled' : ''}}" bindtap="prevPage">上一页</button>
+    <view class="page-indicator">{{page}} / {{totalPages}}</view>
+    <button class="btn btn-secondary {{page >= totalPages ? 'btn-disabled' : ''}}" bindtap="nextPage">下一页</button>
+  </view>
+
+  <button class="btn btn-secondary" bindtap="openAudition">MIDI / 在线曲谱试听 ↗</button>
+  <button class="btn btn-text" bindtap="clearCache">清理曲谱缓存</button>
+
+  </scroll-view>
+  <view class="workspace-foot" wx:if="{{hardwareMode === 'simulator'}}">演示设备 · 模拟数据</view>
+  <!-- 详情弹层 -->
+  <view class="detail-mask" wx:if="{{detailOpen}}" bindtap="closeDetail">
+    <scroll-view class="detail-panel safe-bottom" scroll-y="{{true}}" catchtap="noop">
+      <view wx:if="{{detailLoading}}" class="empty"><view class="empty-icon">⏳</view>加载曲目…</view>
+      <view wx:elif="{{detailError}}" class="empty">
+        <view class="empty-icon error-text">⚠️</view><text class="error-text">{{detailError}}</text>
+      </view>
+      <block wx:elif="{{detail}}">
+        <view class="detail-header">
+          <view class="card-title">{{detail.score.title}}</view>
+          <view class="chip {{detailFromCache ? 'chip-warn' : 'chip-ok'}}">{{detailFromCache ? '离线缓存' : '曲库'}}</view>
+        </view>
+        <view class="caption">
+          {{detail.score.bpm}} BPM ·
+          {{detail.score.difficulty}}/5 · {{detail.score.timeSignature[0]}}/{{detail.score.timeSignature[1]}}
+        </view>
+        <view class="caption">来源：{{detail.score.source.attribution}}（{{detail.score.source.license}}）</view>
+
+        <view class="field">
+          <text class="field-label">练习速度 · BPM（30–180）</text>
+          <input class="input" type="number" value="{{compileBpm}}" bindblur="onBpmChange" bindinput="onBpmInput" />
+        </view>
+
+        <view wx:if="{{compileError}}" class="compile-error chip chip-danger">{{compileError}}</view>
+        <view wx:elif="{{compilePreview}}" class="compile-box">
+          <view class="row-item"><text>四区映射</text><text class="muted">{{compilePreview.mappingLabel}}</text></view>
+          <view wx:if="{{compilePreview.zonePitchNames}}" class="caption">
+            1区 {{compilePreview.zonePitchNames[0]}} · 2区 {{compilePreview.zonePitchNames[1]}} ·
+            3区 {{compilePreview.zonePitchNames[2]}} · 4区 {{compilePreview.zonePitchNames[3]}}
+          </view>
+          <view class="row-item"><text>步数 / 分段</text><text class="muted">{{compilePreview.stepCount}}步 · {{compilePreview.segments}}段{{compilePreview.segments > 1 ? '（每段单独上传，FPGA 不无缝衔接）' : ''}}</text></view>
+          <view class="row-item"><text>时长</text><text class="muted">约 {{compilePreview.durationSeconds}} 秒</text></view>
+        </view>
+
+        <view class="btn-row">
+          <button class="btn {{previewPlaying ? 'btn-danger' : 'btn-secondary'}}" bindtap="{{previewPlaying ? 'stopPreview' : 'startPreview'}}">
+            {{previewPlaying ? '停止预览' : '手机预览'}}
+          </button>
+          <picker wx:if="{{compilePreview.segments > 1}}" range="{{compilePreview.segmentOptions}}" range-key="label" bindchange="chooseUploadSegment" value="{{uploadSegmentIndex}}"><view class="caption">选择上传段：{{compilePreview.segmentOptions[uploadSegmentIndex].label}} ▾</view></picker>
+          <button class="btn btn-primary" bindtap="downloadToDevice" data-segment="{{uploadSegmentIndex}}">
+            {{hardwareMode === 'disconnected' ? '存为草稿（未连接）' : '上传到设备'}}
+          </button>
+        </view>
+        <view wx:if="{{previewLabel}}" class="caption preview-label">{{previewLabel}}</view>
+        <view wx:if="{{uploadState}}" class="upload-state">{{uploadState}}</view>
+        <view wx:if="{{uploadProgress}}" class="caption">{{uploadProgress}}</view>
+        <view wx:if="{{hardwareMode === 'disconnected'}}" class="caption">
+          未连接乐器，曲谱将保存为草稿。
+        </view>
+        <button class="btn btn-secondary" bindtap="hearFpga" loading="{{detailLoading}}">听示范（FPGA） ▶</button>
+        <button class="btn btn-text" bindtap="closeDetail">关闭</button>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+
+<playback-bar></playback-bar>

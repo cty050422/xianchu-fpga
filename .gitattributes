@@ -1,0 +1,6 @@
+# Preserve source bytes across clones: release manifests hash exact build inputs.
+* -text
+* whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.png binary
+*.jpg binary
+*.rao binary

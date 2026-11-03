@@ -1,0 +1,43 @@
+<view class="page workspace-page settings-page">
+  <view class="workspace-header"><view><view class="workspace-title">设备</view><text class="page-subtitle">连接与设置</text></view><button class="btn btn-secondary settings-auth-shortcut" bindtap="onShowServicePair">服务连接</button></view>
+  <scroll-view class="workspace-scroll" scroll-y="{{true}}" enhanced="{{true}}" show-scrollbar="{{false}}" scroll-anchoring="{{false}}" scroll-into-view="{{settingsScrollTarget}}">
+    <view class="card service-card" id="catalog-service">
+      <view class="card-title">服务连接</view>
+      <view class="field"><input class="input" value="{{baseUrlInput}}" placeholder="电脑服务地址" bindinput="onBaseUrlInput" /></view>
+      <view class="btn-row"><button class="btn btn-primary" bindtap="onSaveBaseUrl">保存</button><button class="btn btn-secondary" bindtap="onCheckHealth">检查连接</button></view>
+      <view wx:if="{{healthInfo}}" class="service-status-list"><view class="row-item"><text>曲库</text><text class="status-value">{{healthInfo.ready ? '已连接' : '未就绪'}} · {{healthInfo.songs}} 首</text></view></view>
+      <view wx:if="{{healthError}}" class="error-text small">{{healthError}}</view>
+      <view wx:if="{{healthError}}" class="caption">域名校验失败时，在手机预览菜单中打开调试。</view>
+    </view>
+
+    <view class="card">
+      <view class="row-item"><view class="card-title compact-title">乐器</view><text class="chip {{hardwareMode === 'real' ? 'chip-ok' : hardwareMode === 'simulator' ? 'chip-demo' : 'chip-neutral'}}">{{hardwareMode === 'real' ? '已连接' : hardwareMode === 'simulator' ? '演示设备' : '未连接'}}</text></view>
+      <view class="row-item"><text>状态</text><text class="muted">{{freshness === 'fresh' ? '实时' : freshness === 'stale' ? '连接中断' : '无数据'}}</text></view>
+      <view class="caption">蓝牙连接在「乐器」页操作。</view>
+      <button wx:if="{{hardwareMode === 'simulator'}}" class="btn btn-secondary" bindtap="onLeaveSimulator">退出演示</button>
+    </view>
+
+    <view class="card advanced-card">
+      <view class="row-item disclosure-row" bindtap="onToggleAdvanced"><text>高级设置</text><text class="muted">{{advancedOpen ? '收起 −' : '展开 +'}}</text></view>
+      <block wx:if="{{advancedOpen}}">
+        <view class="field" wx:if="{{hardwareMode === 'disconnected'}}">
+          <view class="card-title">设备模拟</view><view class="caption">模拟数据，不连接硬件。</view>
+          <picker range="{{simProfiles}}" range-key="label" value="{{simProfileIndex}}" bindchange="onSimProfile"><view class="input picker-box">{{simProfileLabel}}</view></picker>
+          <button class="btn btn-secondary" bindtap="onEnterSimulator">启动模拟设备</button>
+        </view>
+        <view class="field" wx:if="{{capability}}">
+          <view class="card-title">设备参数</view>
+          <view class="field" wx:for="{{configFields}}" wx:key="id"><text class="field-label">{{item.label}}（{{item.min}}–{{item.max}}）</text><input class="input" type="number" data-id="{{item.id}}" bindblur="onConfigInput" /></view>
+          <button class="btn btn-secondary" bindtap="onCommitConfig">应用参数</button><view wx:if="{{configResult}}" class="caption">{{configResult}}</view>
+        </view>
+        <view class="caption">{{capabilityText}}</view>
+
+        <view class="row-item disclosure-row" bindtap="onToggleDiagnostics"><text>诊断信息</text><text class="muted">{{diagnosticsOpen ? '收起 −' : '展开 +'}}</text></view>
+        <block wx:if="{{diagnosticsOpen}}"><view class="caption">{{versions.app}} · {{versions.protocol}}</view><view class="diag-json">{{snapshotJson}}</view><button class="btn btn-secondary" bindtap="copyDiagnostics">复制诊断</button></block>
+        <view class="caption setup-note">手机需使用电脑的局域网地址。正式服务需配置 HTTPS 域名。</view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+
+<playback-bar></playback-bar>

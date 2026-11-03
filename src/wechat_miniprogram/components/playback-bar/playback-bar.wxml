@@ -1,0 +1,1 @@
+<view class="playback-bar" wx:if="{{visible}}"><view class="playback-copy" bindtap="open"><text class="playback-title">{{title}}</text><text class="playback-detail">{{detail}}</text></view><button bindtap="stop" disabled="{{busy}}" aria-label="停止示范">■</button></view>

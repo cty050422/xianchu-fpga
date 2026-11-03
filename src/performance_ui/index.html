@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1114">
+  <title>弦触·云声｜设备调试</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./diagnostics.css">
+  <link rel="stylesheet" href="./evidence.css">
+  <link rel="stylesheet" href="./studio.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M5 10v12M11 5v22M17 11v10M23 7v18M29 12v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span><div><div class="eyebrow">表情合成乐器</div><h1>弦触<span class="brand-dot">·</span>云声 <span>调试台</span></h1></div></div>
+      <div class="top-actions"><span id="connectionBadge" class="badge demo">演示数据 · 非硬件</span><button id="demoButton" class="button secondary" type="button">体验演示</button><button id="exportCapture" class="button secondary" type="button">导出采集</button><button id="connectButton" class="button primary" type="button">连接 FPGA 串口</button></div>
+    </header>
+
+    <nav class="workspace-toolbar" aria-label="工作区导航">
+      <div class="workspace-tabs" role="tablist" aria-label="工作区">
+        <button id="tabPerformance" type="button" role="tab" aria-selected="true" aria-controls="performancePanel" data-view="performance">演奏状态</button>
+        <button id="tabControls" type="button" role="tab" aria-selected="false" aria-controls="controlsPanel" data-view="controls" tabindex="-1">压力与表达</button>
+        <button id="tabDevice" type="button" role="tab" aria-selected="false" aria-controls="devicePanel" data-view="device" tabindex="-1">链路与校准</button>
+      </div>
+      <button id="presentationButton" class="presentation-button" type="button" aria-pressed="false" title="放大主舞台，收起次要信息">↗ 专注显示</button>
+    </nav>
+    <div class="notice" id="notice" role="status">演示数据 · 连接串口后显示传感器、表达与设备状态。</div>
+    <div class="workspace">
+    <section id="performancePanel" class="workspace-panel stage-panel" role="tabpanel" aria-labelledby="tabPerformance">
+    <div class="peripheral-overview" aria-label="外设实时状态概览">
+      <div><span>摇杆 1 · 音高与颤音</span><strong id="overviewJoy1">等待演奏</strong><small id="overviewJoy1Detail">X 滑音 · Y 颤音</small></div>
+      <div><span>摇杆 2 · 音色塑形</span><strong id="overviewJoy2">等待演奏</strong><small id="overviewJoy2Detail">X 分量 · Y 合唱 · Z 音色</small></div>
+      <div><span>四个压力演奏区</span><strong id="overviewZones">等待演奏</strong><small id="overviewZonesDetail">轻重决定响度</small></div>
+    </div>
+
+    <main class="layout">
+      <section class="hero card" aria-labelledby="pitchHeading">
+        <div class="section-top"><div><h2 id="pitchHeading">音高</h2></div><span class="meta" id="pitchSource">选中声部 · FPGA 相位步长</span></div>
+        <div class="pitch-summary"><div><span class="caption">当前音</span><strong id="noteName" class="note">—</strong></div><div><span class="caption">音高</span><strong id="frequency" class="measure">— <small>Hz</small></strong></div><div><span class="caption">相对最近半音</span><strong id="cents" class="measure">— <small>cent</small></strong></div><div class="playing-pill" id="playingPill">等待演奏</div></div>
+        <div class="chart-heading"><span>音高轨迹 / 最近 6 秒</span><span class="chart-key"><i></i> 当前声部</span></div>
+        <div class="chart-wrap"><canvas id="pitchChart" aria-label="最近六秒音高变化曲线"></canvas><span class="chart-watermark" id="chartWatermark">演示数据</span></div>
+        <div class="chart-foot"><span>低</span><span>滑音看走向 · 颤音看摆动</span><span>高</span></div>
+      </section>
+
+      <section class="vibrato card" aria-labelledby="vibratoHeading">
+        <div class="section-top"><div><h2 id="vibratoHeading">颤音</h2></div><span id="vibratoBadge" class="mini-badge">等待稳定音</span></div>
+        <div class="vibrato-visual"><canvas id="vibratoChart" aria-label="近期音高摆动示意"></canvas></div>
+        <div class="two-metrics"><div><span class="caption">估算速度</span><strong id="vibratoRate">— <small>Hz</small></strong></div><div><span class="caption">估算深度</span><strong id="vibratoDepth">— <small>cent</small></strong></div></div>
+        <p class="hint">持续发声时，观察音高的周期摆动。</p>
+      </section>
+
+      <section class="timbre card" aria-labelledby="timbreHeading">
+        <div class="section-top"><div><h2 id="timbreHeading">音色</h2></div><span class="mini-badge cyan" id="presetStatus">等待音色</span></div>
+        <div class="preset-face"><div id="presetGlyph" class="preset-glyph">♪</div><div><span class="caption">下一音色</span><strong id="presetName">—</strong><p id="presetDescription">切换后，松开再按可听新音色。</p></div></div>
+        <div class="spectrum-title"><span>分量 / 启用与目标</span><span id="partialCount">— / —</span></div>
+        <div id="harmonicBars" class="harmonic-bars" aria-label="32 路分量启用状态"></div>
+        <p class="hint">亮柱表示启用状态，实际声音以音频输出为准。</p>
+      </section>
+
+
+
+      <section class="effect card" aria-labelledby="effectHeading">
+        <div class="section-top"><div><h2 id="effectHeading">效果</h2></div><span id="effectReady" class="mini-badge">未就绪</span></div>
+          <div class="effect-gauge"><div class="gauge-arc" id="wetGauge"><div><strong id="wetPercent">—</strong><span>合唱混合</span></div></div><div class="effect-details"><span>效果模式</span><strong id="effectMode">—</strong><p>摇杆 2 Y：从原声到带合唱的声音。</p></div></div>
+        <div class="effect-bars" aria-label="摇杆 2 Y 合唱湿声目标与实际比例">
+          <div class="effect-bar-row"><div><span>目标</span><strong id="wetTargetPercent">—</strong></div><div class="effect-bar"><i id="wetTargetFill"></i></div></div>
+          <div class="effect-bar-row"><div><span>当前</span><strong id="wetActualPercent">—</strong></div><div class="effect-bar actual"><i id="wetActualFill"></i></div></div>
+        </div>
+      </section>
+
+      <section class="zones card" aria-labelledby="zonesHeading">
+        <div class="section-top"><div><h2 id="zonesHeading">演奏区</h2></div><span class="mini-badge" id="frameHealth">等待数据</span></div>
+        <div class="zone-grid"><div class="zone" data-zone="0"><span>01 · CH0</span><strong>C / G</strong><small id="zoneGate0">门控未知</small><small id="zoneMotion0">表达变化未知</small></div><div class="zone" data-zone="1"><span>02 · CH1</span><strong>D / A</strong><small id="zoneGate1">门控未知</small><small id="zoneMotion1">表达变化未知</small></div><div class="zone" data-zone="2"><span>03 · CH2</span><strong>E / B</strong><small id="zoneGate2">门控未知</small><small id="zoneMotion2">表达变化未知</small></div><div class="zone" data-zone="3"><span>04 · CH3</span><strong>G / C</strong><small id="zoneGate3">门控未知</small><small id="zoneMotion3">表达变化未知</small></div></div>
+        <p class="hint">按下点亮对应区；上方音组状态决定当前音名。</p>
+        <div class="status-line"><span id="streamStatus">尚未连接实板</span><span id="frameStats">有效 0 · 丢帧 0</span></div>
+      </section>
+    </main>
+    </section>
+    <section id="controlsPanel" class="workspace-panel controls-panel" role="tabpanel" aria-labelledby="tabControls" hidden>
+      <div class="view-intro"><div><h2>表达控制</h2></div><p>双摇杆与演奏状态</p></div>
+      <section class="control card" aria-labelledby="controlHeading">
+        <div class="section-top"><div><h2 id="controlHeading">双摇杆</h2></div><span class="mini-badge" id="joy2Badge">等待状态</span></div>
+        <p class="hint" id="panelState">等待新版交互状态帧</p>
+        <p class="hint" id="guideState">LED 曲目引导：等待实板状态</p>
+        <div class="control-row"><div class="control-icon blue">Ⅰ</div><div><strong>摇杆 1</strong><p>X 滑音 / 弯音 · Y 颤音深度 · Z 单击音组 / 双击八度</p></div><span class="pill" id="z1State">Z 未知</span></div>
+        <div class="axis-status-grid joystick1-evidence">
+          <div class="axis-status"><span>X · 滑音</span><strong id="joy1XPitch">—</strong><small>观察正在发声的音高</small></div>
+          <div class="axis-status"><span>Y · 颤音</span><strong id="joy1YVibrato">—</strong><small>持续按住演奏区后观察</small></div>
+        </div>
+        <div class="control-row"><div class="control-icon pink">Ⅱ</div><div><strong>摇杆 2</strong><p>X 谐波数量 · Y 合唱强度 · Z 单击音色 / 双击LED引导</p></div><span class="pill" id="z2State">Z 未知</span></div>
+        <details class="operation-guide"><summary>操作说明</summary><p>四区按压演奏；摇杆 1 控滑音和颤音，摇杆 2 控分量和合唱。Z1 单击切音组、双击切八度；Z2 单击切下一音色、双击进入 LED 引导；双 Z 同按立即停止。首次校准：松开四区、双摇杆回中，按住 Z2 后按 FPGA 的 KEY2（Y12逻辑复位），约 1 秒后松开 Z2。引导灯只指示当前应按的FSR，滑音和颤音提示见屏幕文字。</p></details>
+        <div class="joystick2-monitor">
+          <div class="monitor-heading"><strong>摇杆 2 · 实时状态</strong><span id="joy2UpdateAge">等待状态</span></div>
+          <p id="joy2Availability">等待摇杆状态。</p>
+          <div class="axis-status-grid">
+            <div class="axis-status"><span>X · 目标谐波数量</span><strong id="joy2XTarget">—</strong><small id="joy2XCenter">回中状态：—</small><small id="joy2XMotion">近 2.5 秒移动：—</small><small id="joy2Override">映射版本：—</small></div>
+            <div class="axis-status"><span>Y · 合唱混合</span><strong id="joy2YTarget">—</strong><small id="joy2YCenter">回中状态：—</small><small id="joy2YMotion">近 2.5 秒移动：—</small><small id="joy2YStage">Y 档位：—</small></div>
+          </div>
+        </div>
+        <p class="hint">推 X 改变合成分量，推 Y 改变合唱比例；按压轻重改变响度。</p>
+      </section>
+    </section>
+    <section id="devicePanel" class="workspace-panel device-panel" role="tabpanel" aria-labelledby="tabDevice" hidden><section id="servicePanel" class="transport-diagnostics idle service-studio" aria-live="polite"><div><strong id="serviceSummary">正在检查网关服务</strong><p id="serviceDetail">服务状态与 FPGA 硬件状态分别显示。</p></div></section>
+      <div class="view-intro"><div><h2>设备诊断</h2></div><p>串口、校准与状态帧</p></div>
+    <div class="transport-diagnostics" id="transportDiagnostics">
+      <div><strong>连接状态</strong><span id="rxSummary">界面演示</span></div>
+      <span id="protocolSummary">连接 FPGA 数据串口后开始更新。</span>
+    </div>
+    <details class="telemetry-details" open><summary>查看设备状态</summary>
+    <section class="signal-path" aria-labelledby="signalPathHeading">
+      <div class="signal-path-heading"><div><div class="eyebrow">LIVE STATUS</div><h2 id="signalPathHeading">演奏链路</h2></div><span class="scope-label">来自 FPGA 串口</span></div>
+      <div class="path-steps" aria-label="串口数据链路状态">
+        <div class="path-step" id="pathSerial"><span>01 · 串口</span><strong>等待连接</strong><small>等待有效帧</small></div>
+        <div class="path-step" id="pathCalibration"><span>02 · 校准</span><strong>未知</strong><small>等待状态帧</small></div>
+        <div class="path-step" id="pathTrigger"><span>03 · 触发</span><strong>未知</strong><small>等待门控帧</small></div>
+        <div class="path-step" id="pathPcm"><span>04 · 合成输出</span><strong>未知</strong><small>等待状态</small></div>
+      </div>
+      <div class="path-explanation" role="status"><strong id="pathHeadline">等待连接</strong><span id="pathDetail">演奏状态会在这里更新。</span></div>
+    </section>
+    </details>
+
+      <section class="device-note"><h3>使用前</h3><p>页面默认未连接，点击“体验演示”只生成演示数据，不代表 FPGA 实测。实板采集只能在连接后导出。</p><p>首次校准：释放四片 FSR、双摇杆回中，按住 Z2 后点按 FPGA KEY2，约 1 秒后松开 Z2。Z2 双击切换 LED 指引；指引不自动代奏。</p><p>数值是串口上报的数字状态。浏览器接收时间不能证明物理音频延迟，分量启用柱也不是实测频谱。</p></section>
+    </section>
+    </div>
+    <footer><span>弦触·云声</span><span>115200 / 8N1 · 串口观测</span></footer>
+  </div>
+  <script type="module" src="./app.mjs"></script>
+  <script type="module" src="./studio.mjs"></script>
+</body>
+</html>

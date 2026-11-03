@@ -1,0 +1,24 @@
+.telemetry-details{margin-bottom:14px}
+.telemetry-details>summary{cursor:pointer;color:#90d6d6;font-size:12px;padding:7px 2px}
+.telemetry-details .signal-path{margin-top:8px}
+.signal-path{border:1px solid var(--line);border-radius:18px;background:#11232bf0;padding:18px;margin-bottom:17px}
+.signal-path-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:14px}
+.scope-label{color:#dbbc81;background:#6d53242b;border:1px solid #c49e5266;border-radius:999px;padding:5px 10px;font-size:11px;white-space:nowrap}
+.path-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.path-step{min-width:0;border:1px solid #39505a;border-radius:12px;background:#1a2d36;padding:12px 13px;position:relative}
+.path-step:not(:last-child):after{content:"›";position:absolute;right:-9px;top:32px;color:#83b5bc;z-index:1;font-size:19px;line-height:1}
+.path-step span,.path-step small{display:block;font-size:11px;color:var(--muted)}
+.path-step strong{display:block;font-size:16px;margin:4px 0;color:#dcebec;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.path-step[data-tone="good"]{border-color:#56b89288;background:#173a35}
+.path-step[data-tone="good"] strong{color:#b8ffc3}
+.path-step[data-tone="warn"]{border-color:#d9a65e88;background:#443929}
+.path-step[data-tone="warn"] strong{color:#ffe1a5}
+.path-step[data-tone="idle"] strong{color:#b5ced4}
+.path-explanation{display:flex;gap:8px 15px;flex-wrap:wrap;align-items:baseline;border-top:1px solid #33515a;padding-top:12px;margin-top:13px;font-size:12px}
+.path-explanation strong{font-size:14px;color:var(--cyan)}
+.path-explanation span{color:#aec7cd}
+.operation-guide{border:1px solid #35515b;border-radius:11px;padding:10px 13px;margin:12px 0;color:#b9d8dc;font-size:12px;line-height:1.6}
+.operation-guide summary{cursor:pointer;color:#76e5df;font-weight:700}
+.operation-guide p{margin:9px 0 0}
+@media(max-width:900px){.path-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.path-step:nth-child(2):after{display:none}}
+@media(max-width:560px){.signal-path-heading{flex-direction:column}.scope-label{white-space:normal}.path-steps{grid-template-columns:1fr}.path-step:after{display:none}}

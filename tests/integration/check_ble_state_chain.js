@@ -1,0 +1,11 @@
+const fs=require('node:fs'),assert=require('node:assert/strict')
+const protocol=require('../../src/wechat_miniprogram/utils/protocol')
+const {createInstrumentModel}=require('../../src/wechat_miniprogram/services/instrument_model')
+const chunks=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));let controls=0;
+const model=createInstrumentModel({},null,setTimeout,clearTimeout,setInterval,clearInterval)
+model.setData=p=>Object.assign(model.data,p)
+const parser=protocol.createReplyParser({onControl:o=>{controls++;model.applyControl(o)}})
+for(const chunk of chunks)parser(Uint8Array.from(chunk).buffer)
+assert.equal(controls,1);assert.equal(model.data.performanceMode,2);assert.equal(model.data.practiceTransport,1)
+assert.deepEqual(model.data.heldActive,[true,false,true,false]);assert.equal(model.data.modeLabel,'挑战')
+console.log('PASS actual ATT20 -> mini-program parser/model: challenge/ready, FSR1+3 held')
